@@ -1,0 +1,26 @@
+############### Structure of a Web Browser ###############
+
+A browser has following componenets:
+1. User interface,
+2. Browser engine,
+3. Rendering engine,
+4. JS Engine,
+5. Networking,
+6. UI Backend,
+7. Data persistence layer (for storage)
+
+1. User interface: It provides the methods with which the user interacts with the Browser Engine. This includes the address bar, back/forward button, reload button, home, bookmarking menu etc. 
+
+2. Browser Engine: It works as a bridge between the UI and Rendering Engine. This provides a high level interface to the Rendering Engine. The Browser Engine provides methods to initiate the loading and other high-level browsing actions(reload, back, forward). It also provides the User Interface with various messages relating to error messages and loading progress.
+
+3. Rendering Engine: It produces the visual representation of a given URL. The Rendering Engine interprets the HTML, XML, and JavaScript that comprises a given URL and generates the layout that is displayed in the user interface. A key component of rendering engine is HTML parser, this HTML parser is quite complex because it allows the Rendering Engine to display poorly formed HTML pages. Different browser use different Rendering Engines: Internet Explorer uses Trident, FireFox uses Gecko, Safari uses WebKit, Chrome and Opera uses Blink.
+
+Parsing HTML to construct DOM Tree ---> Rendering Tree construction ---> Layout of Render tree ---> Painting of Render tree
+
+4. JS Engine: This Component executes javascript code that is embedded in a website. Results of the execution is passed to the Rendering engine for display. The rendering engine may disable various actions based on user defined properties.
+
+5. Networking: It provides functionality to handle retrieved url's using the common internet prootocals of HTTP and FTP. The networking components handles all aspects of internent communication and security and MIME type resolution. Network components may implement a cache of retrieved documents to minimise network traffic.
+
+6. UI backend: It is used for drawing basic widgets like Combo boxes and windows. Underneath it uses UI methods.
+
+7. Data storage: It manages user data such as bookmarks, Cookies, preferences etc. The new HTLM specification (HTML file) defines 'Web Database' which is a complete database in browser.
