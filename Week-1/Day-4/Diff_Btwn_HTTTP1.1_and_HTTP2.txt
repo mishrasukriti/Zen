@@ -1,0 +1,84 @@
+ 							########HTTP/1.1 vs HTTP/2: What's the Difference Between the two ###############
+
+
+* Introduction
+
+The Hypertext Transfer Protocol, or HTTP, is an application protocol that has been the de facto standard for communication on the World Wide Web since its invention in 1989. From the release of HTTP/1.1 in 1997 until recently, there have been few revisions to the protocol. But in 2015, a reimagined version called HTTP/2 came into use, which offered several methods to decrease latency, especially when dealing with mobile platforms and server-intensive graphics and videos.
+
+* HTTP/1.1
+Developed by Timothy Berners-Lee in 1989 as a communication standard for the World Wide Web, HTTP is a top-level application protocol that exchanges information between a client computer and a local or remote web server. In this process, a client sends a text-based request to a server by calling a method like GET or POST. In response, the server sends a resource like an HTML page back to the client.
+
+* HTTP2: A New, Improved Web Protocol
+HTTP/2 is the next version of HTTP and is based on Google’s SPDY Protocol, developed primarily at Google with the intention of reducing web page load latency by using techniques such as compression, multiplexing, and prioritization.It is important to note that HTTP/2 is not a replacement for HTTP. It is merely an extension, with all the core concepts such as HTTP methods, Status Codes, URIs, and Header Fields remaining the same. This protocol served as a template for HTTP/2 when the Hypertext Transfer Protocol working group httpbis of the IETF (Internet Engineering Task Force) put the standard together, culminating in the publication of HTTP/2 in May 2015.
+
+These are the high-level differences between HTTP1 and HTTP2:
+
+1) HTTP2 is binary, instead of textual
+2) HTTP2 is fully multiplexed, instead of ordered and blocking
+3) HTTP2 can, therefore, use one connection for parallelism
+4) HTP2 uses header compression to reduce overhead
+5) HTTP2 allows servers to “push” responses proactively into client caches
+
+1) Binary Protocol:
+The use of Binary Protocol is a result of one of the core enhancements made to HTTP/2. The new binary framing layer relates to how HTTP messages are transmitted between the client (web browser) and server.
+
+The binary framing layer introduced a new encoding mechanism between the socket interface and higher HTTP API used by web applications, such as your browser.
+
+* Textual vs. Binary-
+HTTP1.x uses text-based commands to complete HTTP requests. If you were to view one of these requests they would be perfectly readable (to a system admin at least). HTTP2, on the other hand, uses binary commands (1s and 0s) to complete HTTP requests. It needs to be converted back from binary to read the request.
+This conversion to Binary takes place in the Binary Framing Layer, so only binary commands are transmitted over the network.
+
+2) Multiplexing and Concurrency:
+Modern websites require the web browser to make a significant number of requests to render a web page. HTTP/1.0 allowed just one request to be made at a time. HTTP/1.1 allowed multiple requests, but the number of requests was limited to around 6 or 8, depending on the browser. Many modern websites often require over 100 connections, which when you can only open 6 or 8 connections at a time can cause a website to load more slowly.
+
+* Domain Sharding:
+With HTTP/1.x if a user wanted to make multiple parallel requests to improve performance, they would need to use a technique such as Domain Sharding.This is where a user would use a subdomain (or multiple subdomains) for assets such as images, CSS files, and JavaScript files so that they could make two or three times the number of connections to speed up the download of files.
+
+* Head-of-line Blocking:
+This is further exacerbated by a problem called “head-of-line blocking.” This is where a new request can only be made once the results of the first request must have been received.
+The new binary framing layer (which I discussed previously) removes these limitations.It allows full request and response multiplexing, by allowing the client and server to break down an HTTP message into independent frames, interleave them, and then reassemble them on the other end. Furthermore, it only uses a single TCP connection to do all this.
+
+* Benefits:-
+Interleave multiple requests in parallel without blocking on anyone.
+Interleave multiple responses in parallel without blocking on anyone.
+Use a single TCP connection to deliver multiple requests and responses in parallel.
+Remove unnecessary HTTP/1.x workarounds such as Domain Sharding, Image Sprites, etc.
+
+3)Stream Prioritization
+When websites load the assets (HTML, CSS, JavaScript, images) that make up the web page the order in which they are loaded is important. You can’t have CSS (the styling) load at the end; otherwise, the web page may look deformed for the first few seconds.
+Secondly, you can’t have assets that require the jquery library (JavaScript) load before jquery as this can even break the functionality of some of the features on the website.
+   With HTTP/1.1, this was easy, as head-of-line blocking made it simple to load various assets in the correct order. With HTTP/2, however, the response to the browser request may be received back in any order.
+
+The new protocol solves this by allowing the browser to communicate with the server and indicate the priorities for the respective objects or files.No changes will be required by web/app developers as modern web browsers will take care of prioritization and handling of data streams.
+
+
+4) Header compression:
+
+With HTTP/1.1 a new TCP connection has to be provided for every asset requested, which if you have a page with over 100 requests can be time-consuming. The new Protocol can send all the headers in a single connection utilizing compression.
+Due to a significant “CRIME” attack targeting the use of GZIP Stream Compression the HTTP/2 developers had to abandon its use. Instead, they created a new header-specific compression scheme called HPACK.
+HPACK compresses the individual value of each header before it is transferred to the server. It then looks up the encoded information in a list of previously transferred header values to reconstruct the full header information. This creates a significant performance benefit over HTTP/1.
+
+5) HTTP/2 Server push:
+  A server without Server Push will follow a simple process:
+* An HTTP Request is made for the HTML file.
+* The Server provides the HTML file in response.
+* The HTML document references a CSS file, JavaScript file, and maybe some images. Client requests are then made for those resources, which are then returned by the server.
+* Once the resources are returned the browser renders the page.
+
+The problem with this method is that it takes time to discover the assets in the HTML page, and then more time to retrieve them. This delays the rendering of the web page and increases web page load times.
+
+Page load with Server Push:
+A server with Server Push will follow an even more straightforward process:
+
+* The HTTP Request is made for the HTML file.
+* The Server provides the HTML file in response, along with the CSS file.
+* The page starts to render straight away.
+* Afterward, other less critical assets can be retrieved, such as the JavaScript file, and images.
+The best practice is not to push all your assets; just the ones that hold up the page from rendering. If you push too many resources at once it can cause your site to be slower to load, so be careful.
+
+Benefits:-
+1) The stylesheet and other critical assets are received at the same time as the HTML page, reducing latency.
+2) The browser saves the pushed resource into the cache so it can be reused across different pages.
+3) The server can push the resources within a single TCP connection using multiplexing.
+4)The server can prioritize push resources, although pushing too many can cause a bandwidth jam.
+5) The browser can choose whether to use its cached version, rather than the pushed resource.

@@ -1,0 +1,22 @@
+
+ 						###### Difference Between GET and POST methods of HTTP######
+
+
+The GET Method:
+ GET is used to request data from a specified resource.The query string (name/value pairs) is sent in the URL of a GET request.
+
+The POST Method
+POST is used to send data to a server to create/update a resource. The data sent to the server with POST is stored in the request body of the HTTP request.
+
+Differences between them are following:-
+ 
+1) In case of Get request, only limited amount of data can be sent because data is sent in header while in case of post request, large amount of data can be sent because data is sent in body.
+2) Get request is not secured because data is exposed in URL bar while Post request is secured because data is not exposed in URL bar.
+3) Get request can be bookmarked while Post request cannot be bookmarked.
+4) Get request is idempotent which means second request will be ignored until response of first request is delivered while	Post request is non-idempotent.
+5) Get request is more efficient and used more than Post while	Post request is less efficient and used less than get.
+6) Get request can be cached while PUT request can't be cached.
+7) In case of GET request History Parameters remain in browser history while in Put request parameters are not saved in browser history.
+8) In case of GET request there are restrictions on data type ,only ASCII characters allowed while there is no restrictions in PUT request. Binary data is also allowed.
+9) In case of GET request Data is visible to everyone in the URL but in PUT request data is not displayed in the URL
+
