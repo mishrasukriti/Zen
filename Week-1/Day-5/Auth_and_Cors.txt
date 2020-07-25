@@ -1,0 +1,38 @@
+											
+											############ AUTH and CORS ############
+
+
+* API Authentication :
+  APIs are software protocols and tools that help clients and servers to communicate. However, the bugging question is; how does the server know that clients are who they claim to be for communication to take place. So the  ways in which the identity of clients is stamped for them to be able to access their respective servers in what is referred to as API Authentication.
+
+  So, what is API Authentication?
+Since API is a profound entity with an external resource that has the capability of accepting and responding to protected resource requests by users and clients, they must be equipped to ensure that applications and clients trying to access data are authentic, so that they can proceed to authorized full access when identity is confirmed. The processes of certifying the identity of users trying to access resources on the server and this is what is known as API authentication. And, before we delve deeper into this topic, let’s differentiate between authentication and authorization.
+
+
+Which are the most Common Methods of API Authentication?
+Although there are several methods of API authentication, here are some of the most popular:
+
+1). HTTP Basic Authentication
+2). API Key Authentication
+3). OAuth Authentication
+
+---------------------------------------------------------------------------------------
+
+
+* CORS(Cross Origin Resource Sharing):
+  Cross-Origin Resource Sharing (CORS) is a protocol that enables scripts running on a browser client to interact with resources from a different origin. This is useful because, thanks to the same-origin policy followed by XMLHttpRequest and fetch, JavaScript can only make calls to URLs that live on the same origin as the location where the script is running. For example, if a JavaScript app wishes to make an AJAX call to an API running on a different domain, it would be blocked from doing so thanks to the same-origin policy.
+   Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
+
+An example of a cross-origin request: 
+the front-end JavaScript code served from "https://domain-a.com" uses XMLHttpRequest to make a request for "https://domain-b.com/data.json" .
+
+* CORS - Why Is It Needed?
+	Most of the time, a script running in the user's browser would only ever need to access resources on the same origin (think about API calls to the same backend that served the JavaScript code in the first place). So the fact that JavaScript can't normally access resources on other origins is a good thing for security.
+
+In this context, "other origins" means the URL being accessed differs from the location that the JavaScript is running from, by having:
+
+1). a different scheme (HTTP or HTTPS)
+2). a different domain
+3). a different port
+However, there are legitimate scenarios where cross-origin access is desirable or even necessary.
+

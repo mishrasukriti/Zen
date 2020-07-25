@@ -1,0 +1,38 @@
+												
+
+												############# HTML TAGS #############
+
+
+* HTML Tags :
+     HTML tags are like keywords which defines that how web browser will format and display the content. With the help of tags, a web browser can distinguish between an HTML content and a simple content. HTML tags contain three main parts: opening tag, content and closing tag. But some HTML tags are unclosed tags.
+  When a web browser reads an HTML document, browser reads it from top to bottom and left to right. HTML tags are used to create HTML documents and render their properties. Each HTML tags have different properties.
+  An HTML file must have some essential tags so that web browser can differentiate between a simple text and HTML text.
+
+* Basic HTML Tags :
+		Tag						Description
+	<!DOCTYPE> 				Defines the document type
+	<html>					Defines an HTML document
+	<head>					Contains metadata/information for the document
+	<title>					Defines a title for the document
+	<body>					Defines the document's body
+	<h1> to <h6>			Defines HTML headings
+	<p>						Defines a paragraph
+	<br>					Inserts a single line break
+	<hr>					Defines a thematic change in the content
+	<!--...-->				Defines a comment
+	<img>					Defines an image
+
+* HTML Lists Tags :
+	   Tag						Description
+	<ul>					Defines an unordered list
+	<ol>					Defines an ordered list
+	<li>					Defines a list item
+
+* Styles and Semantics :
+	    Tag						Description
+	<style>					Defines style information for a document
+	<div>					Defines a section in a document
+	<header>				Defines a header for a document or section
+	<footer>				Defines a footer for a document or section
+	<main>					Specifies the main content of a document
+	<section>				Defines a section in a document
