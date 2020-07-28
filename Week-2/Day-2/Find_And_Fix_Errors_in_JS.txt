@@ -1,0 +1,77 @@
+
+
+############################################ Find the fix for different kind of javascript errors ######################
+
+1. Uncaught TypeError: Cannot read property
+Attempting to read null or undefined as if it was an object. For example:
+
+var someVal = null;
+console.log(someVal.foo);
+
+----> How to fix it?
+Usually caused by typos. Check that the variables used near the line number pointed by the error are correctly named.
+
+2. Undefined/null is not an Object:
+Trying to access an undefined or null object.
+
+----> How to fix it?
+Debug and check that all referred objects and nested objects exist for each of the elements. There is probably a nested object down the chain that does not exist for at least one of the elements.
+
+3. Unknown Script error:
+"Script Error" happens when an uncaught JavaScript error crosses domain boundaries in violation of the cross-origin policy. 
+-----> How to fix it?
+Set Up a Cross-Origin HTTP Header or Set Crossorigin = "anonymous"
+
+5. TypeError: object does not support property
+----> How to fix it?
+Analyze the code in the file where the error occurred and come up with a hypothesis for the reason.
+Get the logic of the proposed fix validated by an Oppia team member (have this discussion on the issue thread).
+Make a PR that fixes the issue, then close the issue on merging the PR. 
+
+6.TypeError: undefined is not a function
+
+Occurs when attempting to call a value like a function, where the value is not a function. For example:
+
+var foo = undefined;
+foo();
+
+This error typically occurs if you are trying to call a function in an object, but you typed the name wrong.
+
+---- How to fix it? 
+Ensure the function name is correct. With this error, the line number will usually point at the correct location.
+
+7. RangeError: Maximum call stack size exceeded
+Usually caused by a bug in program logic, causing infinite recursive function calls.
+---- How to fix it? 
+Check recursive functions for bugs that could cause them to keep recursing forever.
+
+
+8. Typeerror cannot read property ‘length’
+usually occurs when you define a normal variable instead of array variable
+---- How to fix it? 
+To solve this issue define a normal variable as ‘Array’([]) variable.The correct code snippet is shown below
+
+9. Uncaught TypeError: Cannot set property
+Attempting to write null or undefined as if it was an object. For example:
+
+---> How to fix this error?
+This too is usually caused by typos. Check the variable names near the line the error points to.
+
+10. ReferenceError: event is not defined error in Firefox
+
+declaring (some of) your event handlers incorrectly:
+
+---> How to fix this error?
+You need "event" to be a parameter to the handlers. WebKit follows IE's old behavior of using a global symbol for "event", but Firefox doesn't. When you're using jQuery, that library normalizes the behavior and ensures that your event handlers are passed the event parameter.
+
+
+2. Uncaught ReferenceError: Invalid left-hand side in assignment
+
+Caused by attempting to assign a value to something that cannot be assigned to.
+The most common example of this error is with if-clauses:
+
+if(doSomething() = 'somevalue')
+
+How to fix it?: Make sure you’re not attempting to assign values to function results or to the this keyword.
+
+3. 

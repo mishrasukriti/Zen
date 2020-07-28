@@ -1,0 +1,110 @@
+
+
+						##################################### JavaScript Error Handling Writeup ############################
+
+
+Question: What do users see when there's a JavaS cript error on a web page?
+Answer: Nothing
+
+“If an error is possible, someone will make it. The designer must assume that all possible errors will occur and design so as to minimize the chance of the error in the first place, or its effects once it gets made. Errors should be easy to detect,they should have minimal consequences, and, if possible,their effects should be reversible.”
+
+-Donald A. Norman
+The Design of Everyday Things
+
+Rule #1: Assume your code will fail
+
+Rule #2:Log errors to the server
+
+Rule #3: You, not the browser, handle errors
+
+Error Lifecycle
+Error --> Try/Catch --> window.onError -> Browser Error
+
+try-catch
+• Thrown errors contain extra information
+• Errors that are caught are considered to have been handled
+
+window.onerror
+• Last stop before browser responds
+• Return true to indicate notto respond
+• Only supported in Internet Explorer and Firefox
+
+
+
+Rule #4: Identify where errors might occur
+
+Types of Errors
+• Type coercion errors
+• Data type errors
+• Communication errors
+
+
+Communication Errors
+• Invalid URL/post data
+• Server response status
+• No network connection
+• Server response content
+
+
+Invalid URL/Post Data
+• Typically long string concatenations
+• Don't forgetto use encodeURIComponent() on each part
+• Make sure parameters are named correctly
+
+
+Server Response Status
+• 200 is notthe only valid status that may be returned
+– Beware of 304
+• Any other status means you didn't get data
+
+No Network Connection
+• Internet Explorer throws an error when calling open() butthen goes through normal lifecycle
+• Firefox fails silently butthrows an error if you try to access any response property (status, statusText,responseText)
+
+
+
+Server Response Content
+• A status of 200/304 is not enough
+• Server errors often return HTML
+• If possible, set status to 500
+
+Rule #5: Throw your own errors
+
+Throw or Try-Catch?
+• Errors should be thrown in the low-level
+parts ofthe application
+– Utilities, core libraries, etc.
+• Use try-catch blocks in higher level parts
+– Application-specific
+– Client-side business logic
+
+Rule #6: Distinguish between Fatal and Non-Fatal errors
+
+Non-Fatal Errors
+• Won'tinterfere with user's main tasks
+• Affects only a portion ofthe page
+– Easily disabled/ignored
+• Recovery is possible
+• A repeat ofthe action may resultin the appropriate result
+• Don't tell the user itisn't working unless absolutely necessary
+
+Fatal Errors
+• The application absolutely cannot continue
+• Significantly interferes with user's ability to be productive
+• Other errors will occur ifthe application continues
+• Message the user immediately!
+• Reload
+
+Fatal or Non-Fatal?
+• Don't allow your code to determine what is and is not fatal
+– Watch outfor loops
+• The user's experience comes first
+
+Rule #7: Provide a Debug Mode
+
+Debug Mode
+• Assign a variable thatis globallyavailable
+• try-catch should re-throw the error
+• window.onerror should return false
+• Allow the browser to handle the error
+
