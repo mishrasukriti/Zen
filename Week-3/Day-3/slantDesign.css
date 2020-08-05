@@ -1,0 +1,91 @@
+body{
+    
+        background-color: #200e29;       
+}
+
+
+.dotted_box{
+    /* margin-left: 30px;
+    margin-right: 30px; */
+    margin: 40px;
+    border-radius: 50px;
+    border: white;
+    border-style: dotted;
+    position: relative;
+    z-index: 3;
+    width: 1350;
+    height: 5000px;
+}
+
+.b{
+    position: absolute;
+    background-image:url("data:image/jpeg;base64,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");
+    top: 500px;
+    z-index: 2;
+    height: 500px;
+    width: 1350;
+    background-size: cover;
+    transform: skewY(-5deg);
+    opacity: 0.5;
+}
+
+.c{
+    position: absolute;
+    background-image:url("https://digitalsynopsis.com/wp-content/uploads/2017/02/beautiful-color-gradients-backgrounds-001-warm-flame.png");
+    top: 1500px;
+    z-index: 2;
+    height: 500px;
+    width: 1350;
+    /* transform: rotate(355deg); */
+    transform: skewY(-5deg);
+}
+
+.d{
+    position: absolute;
+    background-image:url("https://img.wallpapersafari.com/desktop/1680/1050/85/76/HX6A9a.jpg");
+    top: 2000px;
+    height: 500px;
+    width: 1350;
+    z-index: 2;
+    -webkit-transform: skewY(-5deg);
+}
+
+.e{
+    position: absolute;
+    background-image: url("https://miro.medium.com/fit/c/1838/551/1*tKHiI6gUKZip5IQXP2hpGA.png");
+    top: 2500px;
+    height: 500px;
+    width: 1350;
+    z-index: 2;
+    transform: skewY(-5deg);
+}
+
+.f{
+    position: absolute;
+    background-image: url("https://img.wallpapersafari.com/desktop/1680/1050/85/76/HX6A9a.jpg");
+    top: 3500px;
+    height: 500px;
+    width: 1350;
+    z-index: 2;
+    transform: skewY(-5deg);
+}
+
+.g{
+    position: absolute;
+    background-image: url("https://wallpapercave.com/wp/wp3049572.jpg");
+    top: 4000px;
+    height: 500px;
+    width: 1350;
+    z-index: 2;
+    transform: skewY(-5deg);
+}
+
+.h{
+    position: absolute;
+    background-image: url("https://www.xmple.com/wallpaper/linear-gradient-grey-1080x1920-c2-696969-d3d3d3-a-270-f-14.svg");
+    top: 4500px;
+    height: 500px;
+    width: 1350;
+    z-index: 2;
+    transform: skewY(-5deg);
+}
