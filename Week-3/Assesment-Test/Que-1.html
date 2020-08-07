@@ -1,0 +1,227 @@
+<html lang="en">
+    <head>
+        <title>User Registration</title>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+       
+    </head>
+
+    <body>
+        <div style="margin: 100px 300px 100px 300px; background-color:#e6e6e8; height: 100%;"> 
+            <form onsubmit="submit_alert()" method="POST">
+                <table style="padding-top: 30px; border-spacing: 0 15px;">
+                    <tbody>
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Full name
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-user-alt" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="Full Name" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Address line 1
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-address-book" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="Address line 1" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Address line 2
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-address-book" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="Address line 2" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                City
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="far fa-building" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="City" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                State/Province/Region
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-map-marker-alt" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="State/Province/Region" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Postal Code/Zip
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-envelope-open" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="Postal Code/Zip" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Country
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-envelope-open" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <select style="width: 300px;height: 40px;border: none;" required>
+                                                    <option value="AF">
+                                                        Afghanistan
+                                                    </option>
+                                                    <option value="SR">
+                                                        Sri Lanka
+                                                    </option>
+                                                    <option value="IN">
+                                                        India
+                                                    </option>
+                                                    <option value="IT">
+                                                        Italy
+                                                    </option>
+                                                    <option value="CH">
+                                                        China
+                                                    </option>
+                                                </select>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Email
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-user-alt" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="email" style="width: 300px;height: 40px;border: none;" placeholder="Email" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                        <tr >
+                            <td style="width: 400px; padding-left: 20px; font-family: 'Playfair Display', serif; font-size: 20px;" >
+                                Phone Number
+                            </td>
+                            <td>
+                                 <table style="border:solid 1px; border-color: #DCD9D4;">
+                                     <tbody>
+                                         <tr>
+                                             <td>
+                                                <i class="fas fa-user-alt" style="width: 25px;display: flex;padding-left: 7px;"></i>
+                                             </td>
+                                            <td>
+                                                <input type="text" style="width: 300px;height: 40px;border: none;" placeholder="Phone Number" required>
+                                            </td>
+                                         </tr>
+                                     </tbody>
+                                 </table>                      
+                            </td>        
+                        </tr>
+    
+                    </tbody>
+                </table>
+    
+                <br>
+                <button  type="submit" style="margin-left: 400px;width: 80px;height: 30px;background-color: lightgray;" >
+                    Submit
+                </button>
+            </form>
+        </div>
+
+        <script>
+            function submit_alert(){
+                alert("Thank you");
+            }
+        </script>
+    </body>
+</html>
