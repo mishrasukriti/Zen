@@ -13,7 +13,7 @@ class Movie{
 let m1= new Movie("Casino Royale", "EON Production", "PG13");
 let m2= new Movie("movie2", "foo Production", "GL");
 let m3= new Movie("movie3", "bar Production", "CA");
-let m4= new M ovie("movie4", "baz Production");
+let m4= new Movie("movie4", "baz Production");
 
 // Array having moving instances.
 let arr=[m1, m2, m3, m4];
