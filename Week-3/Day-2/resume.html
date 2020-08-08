@@ -1,262 +1,403 @@
-<!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="utf-8" />
-      <title></title>
-      <link rel="stylesheet" href="ResumeCSS.css" />
-      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-      <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-   </head>
-   <body>
-      <!-- <div class="wrapper"> -->
-      <!-- <div class="resume"> -->
-      <div class="intro">
-         <div class="name">
-            Brian Dude
-         </div>
-         <div class="image">
-            <img src="Resume_Brian_Dudey_image.jpg" height="170px" style="border:4px dotted orange ; border-radius: 100%;"/>
-         </div>
-      </div>
-      <div class="white_strip"></div>
-      <div class="intro2"></div>
-      <div  class="contact_info">
-         N.Damen Avenue, Chicago 99999|999-9999|hello@kickresume.com |wwww.kickresume.com
-      </div>
-      <hr>
-        <div class="vl"></div>
-        <div class="left">
-            <div class="profile">
-               <div class="li_wrap">
-                  <div class="icon">
-                     <i class="fa fa-user" aria-hidden="true" style="background-color: black;
-                        display: flex;
-                        justify-content: center;
-                        align-content: flex-end;
-                        color: orange;
-                        font-size: 20px;
-                        width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"></i>
-                  </div>
-                  <div class="icon_name">
-                     Profile
-                  </div>
-               </div>
+<html lang="en">
+    <head>
+        <title>User Registration</title>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+     <style>
+           .gridContainer{
+               display: grid;
+               grid-template-columns: 510px 500px;
+               grid-template-rows: 310px  300px  300px  300px ;
+               grid-gap: 10px 0px;
+               padding: 10px 200px 10px 200px ;
+               background-color:whitesmoke  ;
+           }
+
+           .gridItem{
+            background-color:white;
+            border: rgb(54, 54, 54);
+            padding-top: 0px;
+ 
+           }
+
+           .item1 {
+               grid-column: 1  /span 2;
+               grid-row: 1 ;
+               background-color: #727374;
+            
+           }
+
+           .item2{
+               grid-column:1;
+               grid-row:2 /span 3;
+               padding-top: 10px;
+                
+           }
+           .item3{
+               grid-column:2;
+               grid-row:2 / span 3; 
+               padding-top: 30px;
+           }
+
+           .slider {
+            width: 250px; 
+            height: 5px; 
+           }
+       </style>
+    </head>
+
+    <body>
+        <div class="gridContainer">
+            <div class="gridItem item1">
+                <div class="intro">
+                    <div class="name" style="text-align: center; background-color: orange; position: absolute; width: 400px; height: 85px; font-size: 60px; font-family: monospace; margin: 180px 0px 0px 290px; border-radius: 8px;">
+                       Brian Dude
+                    </div>
+                    <div class="image">
+                       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWHFhZCON--KsTMO98EwQaV0mkI8WmRldt9g&usqp=CAU" height="170px" style="border:4px dotted orange ; border-radius: 80%; margin: 40px 0px 0px 400px;"/>
+                    </div>
+                 </div>
+                <div style="background-color: #ededed; padding-bottom:10px; width: 100%;height: 22px;margin-left: 0px;">
+                    
+                </div>
+                <div style="background-color: whitesmoke; width: 100%;height:35px;margin: 28px 0px 0px 0px;border-bottom: solid 1px darkgray;">
+                    <p style="text-align: center;padding-top: 7px;">N. Damen Avenue, Chicago 99999 | 999-999-9999 |hello@kickresume.com | www.kickresume.com</p>
+                </div>
             </div>
-            <div class="text">
-               Innovative optimized solution seeker. Excited to be at the deployment phase of my new carrer as a web developer. I am ambitious, adventurous, assiduous, animated, and an alliteration advocate.
+
+            <div class="gridItem item2" style="border-right: solid 2px darkgray ;">
+                <div class="profile">
+                    <div style="display: flex; padding-left: 15px;">
+                       <div class="icon">
+                          <i class="fa fa-user" aria-hidden="true" style="background-color: rgb(54, 54, 54);
+                          display: flex;
+                          justify-content: center;
+                          align-content: flex-end;
+                          color: orange;
+                          font-size: 20px;
+                          width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"> </i>
+                       </div>
+                       <div style="font-size: 30px;color: gray;padding-left: 20px;">
+                          Profile
+                       </div>
+                    </div>
+                </div>
+                <p style="padding-left: 15px;">Innovative optimized solution seeker. Excited to be at the deployment phase of my new carrer as a web developer. I am ambitious, adventurous, assiduous, animated, and an alliteration advocate.</p>
+                 
+                <div class="skills">
+                    <div style="display: flex; padding-left: 15px;">
+                       <div class="icon">
+                          <i class="fa fa-user" aria-hidden="true" style="background-color: rgb(54, 54, 54);
+                          display: flex;
+                          justify-content: center;
+                          align-content: flex-end;
+                          color: orange;
+                          font-size: 20px;
+                          width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"> </i>
+                       </div>
+                       <div style="font-size: 30px;color: gray;padding-left: 20px;">
+                          Skills
+                       </div>
+                    </div>
+                </div>
+                 
+                 <br>
+                 <div style="padding-left: 120px;">
+                    <strong>Technical Skills</strong> 
+                 </div>
+                 <div class="skills_table">
+                    <table style="padding: 10px 0px 0px 15px;">
+                       <tbody>
+                          <tr>
+                             <td>
+                                JavaScript
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="80" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                CSS
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="70" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                HTML
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                React
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Redux
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="60" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Mongo
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="60" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Deplyment
+                             </td>
+                             <td>
+                                <div style="padding-left: 100px;">
+                                   <input type="range" min="1" max="100" value="100" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                       </tbody>
+                    </table>
+                 </div>
+                 <br/>
+                 <div style="padding-left: 120px;">
+                    <strong>Additional Skills</strong> 
+                 </div>
+                 <div class="skills_table">
+                    <table style="padding: 10px 0px 0px 15px;">
+                       <tbody>
+                          <tr>
+                             <td>
+                                Project Managment
+                             </td>
+                             <td>
+                                <div style="padding-left: 30px;">
+                                   <input type="range" min="1" max="100" value="80" class="slider"  id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Recruitment
+                             </td>
+                             <td>
+                                <div style="padding-left: 30px;">
+                                   <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Buisness Deployment
+                             </td>
+                             <td>
+                                <div style="padding-left: 30px;">
+                                   <input type="range" min="1" max="100" value="30" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Editing
+                             </td>
+                             <td>
+                                <div style="padding-left: 30px;">
+                                   <input type="range" min="1" max="100" value="60" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                          <tr>
+                             <td>
+                                Fundraising
+                             </td>
+                             <td>
+                                <div style="padding-left: 30px;">
+                                   <input type="range" min="1" max="100" value="90" class="slider" id="myRange">
+                                </div>
+                             </td>
+                          </tr>
+                       </tbody>
+                    </table>
+                 </div>
+
+                 <div class="work_experience" style="padding-top: 15px;">
+                    <div style="display: flex; padding-left: 15px;">
+                       <div class="icon">
+                          <i class="fa fa-briefcase" aria-hidden="true" style="background-color: rgb(54, 54, 54);
+                          display: flex;
+                          justify-content: center;
+                          align-content: flex-end;
+                          color: orange;
+                          font-size: 20px;
+                          width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"> </i>
+                       </div>
+                       
+                       <div style="font-size: 30px;color: gray;padding-left: 20px;">
+                          Work Experience
+                       </div>
+                    </div>
+                </div>
+
+                <div style="text-align: left; padding-left: 20px;">
+                    <br>
+                    <b>Event Manager</b>
+                    <span style="text-align: right;padding-left: 90px;">03/2014-02/2017</span>
+                    <br>
+                    C3 Presents, Washington DC
+              </div>
+              <div class="text">
+                    <ul >
+                       <li style="text-align: left;">
+                          Supervise operations and staff in a 20-person inbound telemarketing unit, including
+                          hiring, training and evaluating employees, preparing and administering annual
+                          budgets, developing business plans, etc.
+                       </li>
+                       <li>
+                          Assess level of customer satisfaction and resolve sensitive and complex issues raised
+                          by customers; provide additional training and take other action as required to
+                          maintain a high level of customer satisfaction.
+                       </li>
+                       <li>
+                           Brought new business to the organisation through relentless networking and stewardship which helped the company win the bid for the State Department Summit on Middle East and, the companies largest civic event to date, the United States of Women.
+                       </li>
+                    </ul>
+              </div> 
+                
+            </div> 
+
+            <div class="gridItem item3">
+                <div class="work_experience" style="padding-top: 15px;">
+                    <div style="display: flex; padding-left: 15px;">
+                       <div class="icon">
+                          <i class="fa fa-briefcase" aria-hidden="true" style="background-color: rgb(54, 54, 54);
+                          display: flex;
+                          justify-content: center;
+                          align-content: flex-end;
+                          color: orange;
+                          font-size: 20px;
+                          width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"> </i>
+                       </div>
+                       
+                       <div style="font-size: 30px;color: gray;padding-left: 20px;">
+                          Work Experience
+                       </div>
+                    </div>
+                </div>
+
+                <div style="text-align: left; padding-left: 20px;">
+                    <br>
+                    <b>Community Relations Manager</b>
+                    <span style="text-align: right;padding-left: 90px;">06/2011-01/2014</span>
+                    <br>
+                    C3 Presents, Washington DC
+                </div>
+                <div class="text">
+                    <ul >
+                       <li style="text-align: left;">
+                          Arranging presentations and pitch deck.
+                       </li>
+                       <li>
+                          Designing a PR plan and establishing important focus points.
+                       </li>
+                       <li>
+                           Designing, creating and managing content across multiple communications platforms.
+                       </li>
+                       <li>
+                           Building relationships with key media players.
+                       </li>
+                    </ul>
+                </div> 
+
+                <div class="Education" style="padding-top: 15px;">
+                    <div style="display: flex; padding-left: 15px;">
+                       <div class="icon">
+                          <i class="fa fa-briefcase" aria-hidden="true" style="background-color: rgb(54, 54, 54);
+                          display: flex;
+                          justify-content: center;
+                          align-content: flex-end;
+                          color: orange;
+                          font-size: 20px;
+                          width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"> </i>
+                       </div>
+                       
+                       <div style="font-size: 30px;color: gray;padding-left: 20px;">
+                          Education
+                       </div>
+                    </div>
+                </div>
+    
+                <div style="text-align: left; padding-left: 20px;">
+                    <br>
+                    <b>Engineering Immersion Program</b>
+                    <span style="text-align: right;padding-left: 90px;">11/2018-06/2018</span>
+                    <br>
+                    Thinkful Chicago, IL
+                </div>
+                <div class="text">
+                    <p style="padding-left: 15px;">Innovative optimized solution seeker. Excited to be at the deployment phase of my new carrer as a web developer. I am ambitious, adventurous, assiduous, animated, and an alliteration advocate.</p>
+                    <ul >
+                       <li style="text-align: left;">
+                          Supervise operations and staff in a 20-person inbound telemarketing unit, including
+                          hiring, training and evaluating employees, preparing and administering annual
+                          budgets, developing business plans, etc.
+                       </li>
+                       <li>
+                          Assess level of customer satisfaction and resolve sensitive and complex issues raised
+                          by customers; provide additional training and take other action as required to
+                          maintain a high level of customer satisfaction.
+                       </li>
+                       <li>
+                           Brought new business to the organisation through relentless networking and stewardship which helped the company win the bid for the State Department Summit on Middle East and, the companies largest civic event to date, the United States of Women.
+                       </li>
+
+                       <li>
+                           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut amet recusandae in, ipsum, deserunt voluptatibus consequuntur tempora praesentium cumque reiciendis perferendis debitis vel, quae facere. Nemo autem quo ratione laboriosam.
+                       </li>
+
+                       <li>
+                           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti repellendus quisquam modi minima ducimus id minus doloribus accusantium. Molestiae ea voluptatibus alias veniam officia? Distinctio modi aspernatur quo mollitia inventore!
+                       </li>
+                    </ul>
+                </div> 
+
+                <div style="text-align: left; padding-left: 20px;">
+                    <br>
+                    <b>BA, English</b>
+                    <span style="text-align: right;padding-left: 90px;">09/2001-09/2005</span>
+                    <br>
+                     University of California,
+                </div>
+                
             </div>
-            <div class="skills" style="padding-top: 15px;">
-               <div class="li_wrap">
-                  <div class="icon">
-                     <i class="fa fa-flask" aria-hidden="true" style="background-color: black;
-                        display: flex;
-                        justify-content: center;
-                        align-content: flex-end;
-                        color: orange;
-                        font-size: 20px;
-                        width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"></i>
-                  </div>
-                  <div class="icon_name">
-                     Skills
-                  </div>
-               </div>
-            </div>
-            <div>
-               <b>Technical Skills</b> 
-            </div>
-            <div class="skills_table">
-               <table>
-                  <tbody>
-                     <tr>
-                        <td>
-                           JavaScript
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           CSS
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           HTML
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           React
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Redux
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Mongo
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Deplyment
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            <br/>
-            <div>
-               <b>Additional Skills</b> 
-            </div>
-            <div class="skills_table">
-               <table>
-                  <tbody>
-                     <tr>
-                        <td>
-                           Project Managment
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Recruitment
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Buisness Deployment
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Editing
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                     <tr>
-                        <td>
-                           Fundraising
-                        </td>
-                        <td>
-                           <div>
-                              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                           </div>
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-            <div class="work_experience" style="padding-top: 15px;">
-               <div class="li_wrap">
-                  <div class="icon">
-                     <i class="fa fa-briefcase" aria-hidden="true" style="background-color: black;
-                        display: flex;
-                        justify-content: center;
-                        align-content: flex-end;
-                        color: orange;
-                        font-size: 20px;
-                        width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"></i>
-                  </div>
-                  <div class="icon_name">
-                     Work Experience
-                  </div>
-               </div>
-               <br>
-            </div>
-            <div style="text-align: left; padding-left: 20px;">
-                  <b>Event Manager</b>
-                  <span style="text-align: right;padding-left: 90px;">03/2014-02/2017</span>
-                  <br>
-                  C3 Presents, Washington DC
-            </div>
-            <div class="text">
-                  <ul >
-                     <li style="text-align: left;">
-                        Supervise operations and staff in a 20-person inbound telemarketing unit, including
-                        hiring, training and evaluating employees, preparing and administering annual
-                        budgets, developing business plans, etc.
-                     </li>
-                     <li>
-                        Assess level of customer satisfaction and resolve sensitive and complex issues raised
-                        by customers; provide additional training and take other action as required to
-                        maintain a high level of customer satisfaction.
-                     </li>
-                  </ul>
-            </div>
+
+           
+            
+        </div> 
+
         </div>
-    </div>
-    <div class="right" style="float: right;display: flex;flex-direction: column;justify-content: flex-start;width: 48%;">
-        <div class="work_experience" style="padding-top: 15px;">
-            <div class="li_wrap">
-               <div class="icon">
-                  <i class="fa fa-briefcase" aria-hidden="true" style="background-color: black;
-                     display: flex;
-                     justify-content: center;
-                     align-content: flex-end;
-                     color: orange;
-                     font-size: 20px;
-                     width: 35px;height:30px;padding-top: 7px;border-radius: 100%;border: dotted ;border-width: 3px;"></i>
-               </div>
-               <div class="icon_name">
-                  Work Experience
-               </div>
-            </div>
-            <br>
-         </div>
-    </div>
-</body>
+
+    </body>
 </html>
