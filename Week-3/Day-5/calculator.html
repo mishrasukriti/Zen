@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="calculator.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+    </head>
+
+    <body>
+        <script>
+            // Title div with Simple Calculator
+            var titleDiv= document.createElement('div');
+            titleDiv.setAttribute('class', 'titleDiv');
+            var titleText= document.createElement('p');
+            titleText.innerHTML='Simple Calculator';
+            titleDiv.append(titleText);
+
+            //Creating outer container Div
+            var containerDiv = document.createElement('div');
+            containerDiv.setAttribute('class', 'container-fluid outerContainer');
+            
+            var row1Div = document.createElement('div');
+            row1Div.setAttribute('class', 'row');
+
+            var row1_col1_div = document.createElement('div');
+            row1_col1_div.setAttribute('class', 'col-3');
+            
+            var row1_col2_div = document.createElement('div');
+            row1_col2_div.setAttribute('class', 'col-6 ');
+
+            var row1_col3_div = document.createElement('div');
+            row1_col3_div.setAttribute('class', 'col-3 ');
+
+            var outputBoxDiv= document.createElement('div');
+            outputBoxDiv.setAttribute('class', 'outputBoxDiv border border-primary text-right mx-5 ');
+            outputBoxDiv.innerText = '';
+            // Appending textArea to row1_col2_Div
+            row1_col2_div.append(outputBoxDiv);
+            
+            
+            //Creating keypad for calculator
+            var row2Div = document.createElement('div');
+            row2Div.setAttribute('class', 'row p-5');
+
+            //Creating keypad for calculator
+
+            // var row2_col0 = document.createElement('div');
+            // row2_col0.setAttribute('class', 'col text-left');
+
+            //row2_col1 to have digits 7,8 and 9
+            var row2_col1 = document.createElement('div');
+            row2_col1.setAttribute('class', 'col text-right');
+
+            //row2_col2 to have operations 
+            var row2_col2 = document.createElement('div');
+            row2_col2.setAttribute('class', 'col text-left');
+
+            // var row2_col3 = document.createElement('div');
+            // row2_col3.setAttribute('class', 'col-3');
+
+            
+            //Creating digits buttons
+            var digit7Button = createButton('7', 'btn-outline-primary');
+            var digit8Button = createButton('8', 'btn-outline-primary');
+            var digit9Button = createButton('9', 'btn-outline-primary');
+            var digit4Button = createButton('4', 'btn-outline-primary');
+            var digit5Button = createButton('5', 'btn-outline-primary');
+            var digit6Button = createButton('6', 'btn-outline-primary');
+            var digit1Button = createButton('1', 'btn-outline-primary');
+            var digit2Button = createButton('2', 'btn-outline-primary');
+            var digit3Button = createButton('3', 'btn-outline-primary');
+            var deleteButton = createButton('Delete', 'btn-outline-primary');
+            var digit0Button = createButton('0', 'btn-outline-primary');
+            var clearButton = createButton('Clear', 'btn-outline-primary');
+
+            //Creating buttons for operations
+            var plusButton = createButton('+', 'btn-outline-danger');
+            var minusButton = createButton('-', 'btn-outline-danger');
+            var multiplyButton = createButton('*', 'btn-outline-danger');
+            var divideButton = createButton('/', 'btn-outline-danger');
+            var percentageButton = createButton('%', 'btn-outline-danger');
+            var equalButton = createButton('=', 'btn-outline-success');
+
+            //Creating button group for digits 7, 8 and 9
+            var buttonGroup1= createButtonGroup(digit7Button, digit8Button, digit9Button);
+            //Creating button group for digits 4, 5 and 6
+            var buttonGroup2= createButtonGroup(digit4Button, digit5Button, digit6Button);
+            //Creating button group for digits 1, 2 and 3
+            var buttonGroup3= createButtonGroup(digit1Button, digit2Button, digit3Button);
+            //Creating button group for digits Delete, 0 and Clear
+            var buttonGroup4= createButtonGroup(deleteButton, digit0Button, clearButton);
+            // Creating vertical group of buttonGroup1, buttonGroup2, buttonGroup3, buttonGroup4
+            var verticalDigitGroupButton1=createVerticalGroup(buttonGroup1, buttonGroup2, buttonGroup3, buttonGroup4);
+            
+            // appending digitGroupButton1  to row2_col1
+            row2_col1.append(verticalDigitGroupButton1);            
+
+            
+            
+             //Creating button group for operation plus and minus
+             var buttonGroup5= createButtonGroup(plusButton, minusButton);
+            //Creating button group for operation multiply and divide
+            var buttonGroup6= createButtonGroup(multiplyButton, divideButton);            
+            //Creating button group for operation multiply and divide
+            var buttonGroup7= createButtonGroup(percentageButton, equalButton);
+            // Creating vertical group of buttonGroup5, buttonGroup6, buttonGroup7
+            var verticalDigitGroupButton2=createVerticalGroup(buttonGroup5, buttonGroup6, buttonGroup7);
+            // appending verticalDigitGroupButton2  to row2_col2
+            row2_col2.append(verticalDigitGroupButton2);
+
+            
+
+            //Appending textArea to row1_col1_div, row1_col1_div, row1_col3_div to row1Div
+            row1Div.append(row1_col1_div, row1_col2_div, row1_col3_div);
+            //Appending col1 and col2 to parent row2
+            row2Div.append(row2_col1, row2_col2);
+            //Attaching rows divs with outer container div
+            containerDiv.append(row1Div, row2Div);
+            document.body.append(titleDiv, containerDiv);
+
+
+            //Adding events based logic
+            /*
+            Digits click functions
+            */
+            digit1Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '1';
+            });
+            digit2Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '2';
+            });
+            digit3Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '3';
+            });
+            digit4Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '4';
+            });
+            digit5Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '5';
+            });
+            digit6Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '6';
+            });
+            digit7Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '7';
+            });
+            digit8Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '8';
+            });
+            digit9Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '9';
+            });
+            digit0Button.addEventListener("click", function() {
+                outputBoxDiv.innerText += '0';
+            });
+
+            /*
+            Delete button listener
+            */
+            deleteButton.addEventListener("click", function() {
+                var outputBoxText = outputBoxDiv.innerText;
+                outputBoxDiv.innerText = outputBoxText.slice(0, outputBoxText.length-1);
+            });
+
+            /*
+            Clear button listener
+            */
+            clearButton.addEventListener("click", function() {
+                outputBoxDiv.innerText = "";
+            });
+
+            /*
+            Operators event listener
+            */
+            plusButton.addEventListener("click", function() {
+                outputBoxDiv.innerText += '+';
+            });
+            minusButton.addEventListener("click", function() {
+                outputBoxDiv.innerText += '-';
+            });
+            multiplyButton.addEventListener("click", function() {
+                outputBoxDiv.innerText += '*';
+            });
+            divideButton.addEventListener("click", function() {
+                outputBoxDiv.innerText += '/';
+            });
+            percentageButton.addEventListener("click", function() {
+                outputBoxDiv.innerText += '%';
+            });
+
+            /*
+            Equal operator listener
+            */
+            equalButton.addEventListener("click", function() {
+                outputBoxDiv.innerText = eval(outputBoxDiv.innerText);
+            });
+
+            window.addEventListener('keyup', (event) => {
+	            if ((event.keyCode >= 48 && event.keyCode <= 57)) {
+		            outputBoxDiv.innerText += String.fromCharCode(event.keyCode);
+            }
+            });
+
+            // function to create a button
+            function createButton(buttonText, buttonOutlineType) {
+                var newButton = document.createElement('button');
+                var buttonClass = 'btn customButton ' + buttonOutlineType;
+                newButton.setAttribute('class', buttonClass);
+                newButton.setAttribute('type', 'button');
+                newButton.innerText = buttonText;
+                return newButton;
+            }
+
+            // function to create a button group of given buttons
+            function createButtonGroup(...digitButtonArr){
+                var buttonGroup = document.createElement('div');
+                buttonGroup.setAttribute('class', 'btn-group btn-group-lg');
+                buttonGroup.setAttribute('role', 'group');
+                //Appending given  digits buttons to  buttonGroup
+                for(let i=0; i<digitButtonArr.length; i++) buttonGroup.appendChild(digitButtonArr[i]);
+                return buttonGroup;
+            }
+
+            // function to create vertical group of given button groups
+            function createVerticalGroup(...buttonGroupArr){
+                var verticalDigitGroupButton = document.createElement('div');
+                verticalDigitGroupButton.setAttribute('class', 'btn-group-vertical');
+                verticalDigitGroupButton.setAttribute('role', 'group');
+                for(let i=0; i<buttonGroupArr.length; i++){
+                    verticalDigitGroupButton.appendChild(buttonGroupArr[i]);
+                }
+                return verticalDigitGroupButton;
+            }
+        </script>
+
+    </body>
+</html>
+        
+    
