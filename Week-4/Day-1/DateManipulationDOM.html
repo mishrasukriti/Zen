@@ -71,18 +71,18 @@
                 let userDOB = inputBox.value;
                 let userDOBDateObject = new Date(userDOB);
 
-                /**
+                 /**
                 Calculating date difference
                 */
                 let currDateObject = new Date();
                 let diff = Math.floor(currDateObject.getTime() - userDOBDateObject.getTime());
-                let msDiff = (Math.floor(diff))%1000;
-                let  secondsDiff = (Math.floor(diff/1000))%60;
-                let minsDiff = Math.floor(Math.floor(diff/1000)/60)%60;
-                let hrsDiff = Math.floor(Math.floor((Math.floor(diff/1000)/60))/60)%24;
-                let daysDiff = Math.floor(Math.floor(Math.floor((Math.floor(diff/1000)/60))/60)/24)%30;
-                let monthsDiff = Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(diff/1000)/60))/60)/24)/30)%12;
-                let yearsDiff= Math.floor(Math.floor(Math.floor(Math.floor(Math.floor((Math.floor(diff/1000)/60))/60)/24)/30)/12);
+                let msDiff = diff;
+                let  secondsDiff = Math.floor(msDiff/1000);
+                let minsDiff = Math.floor(secondsDiff/60);
+                let hrsDiff = Math.floor(minsDiff/60);
+                let daysDiff = Math.floor(hrsDiff/24);
+                let monthsDiff = getMonths(currDateObject, userDOBDateObject);
+                let yearsDiff= getYears(currDateObject,userDOBDateObject);
 
                 /**
                 Updating date difference in outputDiv
@@ -97,6 +97,15 @@
             containerDiv.append(textDiv, dateDiv, outputDiv);
             //Appending elements to document
             document.body.append(titleDiv,containerDiv);
+            
+            function getYears(currDateObject, userDOBDateObject ){
+                return currDateObject.getFullYear()- userDOBDateObject.getFullYear() ;
+            }
+
+            function getMonths(currDateObject, userDOBDateObject){
+                years= getYears(currDateObject, userDOBDateObject);
+                return (years*12) + currDateObject.getMonth()- userDOBDateObject.getMonth();
+            }
         </script>
     </body>
 </html>
