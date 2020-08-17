@@ -5,6 +5,7 @@ let outerDiv= document.createElement('div');
 outerDiv.setAttribute('style', 'background-color: #FADDE1;');
 
 let container_div= document.createElement('div');
+container_div.setAttribute('style', 'height:100%;');
 
 /**
  * Creating Title div
