@@ -1,0 +1,232 @@
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width= device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+        <title>Pet Shop</title>
+        
+        <script> var exports = {}; </script>
+        <script src="petShop.js"></script>
+        <script src="availability.js"></script>
+        <script src="enquiry.js"></script>
+        <script src="Pet.js"></script>
+        <script src="petCharacterstics.js"></script>
+        <script src="PetRequest.js"></script>
+        <script src="PetWithCount.js"></script>
+
+        <script src="request.js"></script>
+    </head>
+    <body>
+        
+        
+
+        <!-- <script src="availability.ts"></script>
+        <script src="request.ts"></script> -->
+        <script>
+            let container = document.createElement('div');
+            container.classList.add('container', 'p-5');
+
+            let pageTitle = document.createElement('h1');
+            pageTitle.classList.add('row');
+            pageTitle.innerHTML = 'Pet Shop';
+            pageTitle.setAttribute('style', 'align-content:center;margin-left:400px');
+
+            let petInformationFillingDiv = document.createElement('div');
+            petInformationFillingDiv.classList.add('row', 'p-5');
+            let inputPetTypeAndCountDiv = createInputPetTypeAndCountDiv();
+            petInformationFillingDiv.append(inputPetTypeAndCountDiv);
+
+            //Creating PetShop object
+            let petShop = new PetShop();
+
+            // Creating Buttons
+            let buttonsDiv = document.createElement('div');
+            buttonsDiv.classList.add('row', 'p-5');
+            let addAvailabilityButton = createAvailabilityButton('addPetAvailability', 'Add Availability', petShop);
+            let addEnquiryButton = createEnquiryButton('addPetEnquiry', 'Add Pet Enquiry', petShop);
+            let mapRequestToEnquiryButton = createMapEnquiriesButton('mapRequestToEnquiry', 'Map Pet requests', petShop);
+            let getStatusForFirstFiveEnquiryButton = createCheckStatusButton('getFirstFiveEnquiryStatus', 'Get 5 Enquiry Status');
+            buttonsDiv.append(addAvailabilityButton, addEnquiryButton, mapRequestToEnquiryButton, getStatusForFirstFiveEnquiryButton);
+
+
+            container.append(pageTitle, petInformationFillingDiv, buttonsDiv);
+            document.body.append(container);
+
+            function createCheckStatusButton(buttonId, buttonText, petShop) {
+                let buttonDiv = document.createElement('div');
+                buttonDiv.classList.add('col-3');
+                let button = createButton(buttonId, buttonText);
+                buttonDiv.addEventListener('click', function(event) {
+                    let availablePetCollection = petShop.availability.findAvailablePetsCollection();
+                    console.log("Available pets collection is:" + availablePetCollection);
+                    alert("Available pets collection is:" + availablePetCollection);
+                });
+            }
+
+            function createMapEnquiriesButton(buttonId, buttonText, petShop) {
+                let buttonDiv = document.createElement('div');
+                buttonDiv.classList.add('col-3');
+                let button = createButton(buttonId, buttonText);
+                buttonDiv.addEventListener('click', function(event) {
+                    petShop.mapRequestDataWithAvailabilityData();
+                    alert('Enquiries mapped successfully to Available pets');
+                });
+            }
+
+
+            function createAvailabilityButton(buttonId, buttonText, petShop) {
+                let buttonDiv = document.createElement('div');
+                buttonDiv.classList.add('col-3');
+                let button = createButton(buttonId, buttonText);
+                buttonDiv.addEventListener('click', function(event) {
+                    let petType = document.getElementById('petType').innerText;
+                    let petCount = document.getElementById('petCount').innerText;
+                    let petChar = document.getElementById('petChar').innerText;
+                    let petHistory = document.getElementById('petHistory').innerText;
+
+                    let pet = new Pet();
+                    pet.petType = petType;
+                    pet.petChar = petChar;
+                    pet.petHistory = petHistory;
+
+                    let petRequest = new PetRequest();
+                    petRequest.pet = pet;
+                    petRequest.petCount = petCount;
+
+                    let petRequestArr = [];
+                    petRequestArr.push(petRequest);
+
+                    
+                    petShop.availability.insert(petRequestArr);
+                });
+                buttonDiv.append(button);
+                return buttonDiv;
+            }
+
+            function createEnquiryButton(buttonId, buttonText) {
+                let buttonDiv = document.createElement('div');
+                buttonDiv.classList.add('col-3');
+                let button = createButton(buttonId, buttonText);
+                buttonDiv.addEventListener('click', function(event) {
+                    let petType = document.getElementById('petType').innerText;
+                    let petCount = document.getElementById('petCount').innerText;
+                    
+                    let enquiry = new Enquiry();
+
+                    let petRequestObj = new PetRequest();
+
+                    let pet = new Pet();
+                    pet.petType = petType;
+                   
+                    petRequestObj.pet = pet;
+                    petRequestObj.petCount = petCount;
+
+                    let petRequestArr = [];
+                    petRequestArr.push(petRequestObj);
+
+                    enquiry.requestedPets = petRequestArr;
+                    enquiry.currentStatus = 'UNASSIGNED';
+                    enquiry.isAvailable = 'false';
+
+                    petShop.request.insert(petRequestArr);
+                });
+                buttonDiv.append(button);
+                return buttonDiv;
+            }
+            
+            function createButton(buttonId, buttonText) {
+                let button = document.createElement('button');
+                button.setAttribute('type', 'button');
+                button.classList.add('btn', 'btn-primary');
+                button.innerHTML = buttonText;
+                button.id = buttonId;
+
+                return button;
+                
+            }
+
+            
+
+            
+
+            // Creating Button for Get Status of first five enquiry Button
+
+            // Creating Button for Mapping Button
+
+            function createInputPetTypeAndCountDiv() {
+                let inputDiv = document.createElement('div');
+                inputDiv.classList.add('row');
+
+                let petTypeDiv = document.createElement('div');
+                petTypeDiv.classList.add('col');
+                
+                let availabilityPetTypeLabel = document.createElement('label');
+                availabilityPetTypeLabel.innerHTML = 'Pet Type';
+                availabilityPetTypeLabel.setAttribute('for', 'petType');
+                availabilityPetTypeLabel.id = 'petType';
+
+                let petTypeInputBox = document.createElement('input');
+                petTypeInputBox.setAttribute('type', 'text');
+                petTypeInputBox.classList.add('form-control');
+                petTypeInputBox.setAttribute('placeholder', 'Enter Pet Type');
+                petTypeInputBox.id = 'petType';
+                
+                petTypeDiv.append(availabilityPetTypeLabel, petTypeInputBox);
+
+                let petCountDiv = document.createElement('div');
+                petCountDiv.classList.add('col');
+                
+                let availabilityPetCountLabel = document.createElement('label');
+                availabilityPetCountLabel.innerHTML = 'Pet Count';
+                availabilityPetCountLabel.setAttribute('for', 'petCount');
+                availabilityPetCountLabel.id = 'petCount';
+
+                let petCountInputBox = document.createElement('input');
+                petCountInputBox.setAttribute('type', 'text');
+                petCountInputBox.classList.add('form-control');
+                petCountInputBox.setAttribute('placeholder', 'Enter Pet Count');
+                petCountInputBox.id = 'petCount';
+                
+                petCountDiv.append(availabilityPetCountLabel, petCountInputBox);
+
+                let petCharDiv = document.createElement('div');
+                petCharDiv.classList.add('col');
+                
+                let petCharLabel = document.createElement('label');
+                petCharLabel.innerHTML = 'Pet Characterstics';
+                petCharLabel.setAttribute('for', 'petChar');
+                petCharLabel.id = 'petChar';
+
+                let petCharInputBox = document.createElement('input');
+                petCharInputBox.setAttribute('type', 'text');
+                petCharInputBox.classList.add('form-control');
+                petCharInputBox.setAttribute('placeholder', 'Enter Pet Characterstics');
+                petCharInputBox.id = 'petChar';
+                
+                petCharDiv.append(petCharLabel, petCharInputBox);
+
+                let petHistoryDiv = document.createElement('div');
+                petHistoryDiv.classList.add('col');
+                
+                let petHistoryLabel = document.createElement('label');
+                petHistoryLabel.innerHTML = 'Pet History';
+                petHistoryLabel.setAttribute('for', 'petHistory');
+                petHistoryLabel.id = 'petHistory';
+
+                let petHistoryInputBox = document.createElement('input');
+                petHistoryInputBox.setAttribute('type', 'text');
+                petHistoryInputBox.classList.add('form-control');
+                petHistoryInputBox.setAttribute('placeholder', 'Enter Pet History');
+                petHistoryInputBox.id = 'petHistory';
+                
+                petHistoryDiv.append(petHistoryLabel, petHistoryInputBox);
+                
+                inputDiv.append(petTypeDiv, petCountDiv, petCharDiv, petHistoryDiv);
+                return inputDiv;
+            }
+
+            
+        </script>
+    </body>
+</html>

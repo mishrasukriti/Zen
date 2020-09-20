@@ -16,7 +16,7 @@ for(let i=0;i<name_score_arr2.length;i++) {
     container.appendChild(createScoreDiv(name_score_arr2[i]));
 }
 
-let goHomeButtonDiv = createButtonDiv('Go Home', 'triviaDBQuiz.html');
+let goHomeButtonDiv = createButtonDiv('Go Home', 'index.html');
 document.body.append(container, goHomeButtonDiv);
 
 

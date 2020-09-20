@@ -103,13 +103,15 @@ async function getCountry(){
     let latitude= finalData.latlng[0];
     let longitude= finalData.latlng[1];
     
+    let buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('text-center');
     let getDetails = createButton(latitude, longitude);
 
-
+    buttonDiv.appendChild(getDetails);
     
 
     //Appenders
-    cardBodyDiv.append(capital, region, countryCode , getDetails);
+    cardBodyDiv.append(capital, region, countryCode , buttonDiv);
     cardDiv.append( nameDiv, imageDiv, cardBodyDiv);
     colDiv.append(cardDiv);
 
@@ -138,8 +140,7 @@ async function getCountry(){
     getDetails.setAttribute('type', 'button');
     getDetails.classList.add('btn', 'btn-primary');
     getDetails.innerText= 'Check Weather';
-    //let url = 'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=';
-    let url_string1 = 'http://api.openweathermap.org/data/2.5/weather?lat=';
+    let url_string1 = 'https://api.openweathermap.org/data/2.5/weather?lat=';
      let url_string2 = '&appid=a421b15d9970e5c08a67c82f0b67f444';
      let final_url = url_string1 + lat+ '&lon='+ lon + url_string2 ;
 

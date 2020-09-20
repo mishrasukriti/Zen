@@ -6,7 +6,7 @@ let userNameDiv = createNameDiv();
 let saveButtonDiv = createSaveButtonDiv();
 
 let playAgainButtonDiv =  createButtonDiv('Play Again', 'game.html');
-let goHomeButtonDiv = createButtonDiv('Go Home', 'triviaDBQuiz.html');
+let goHomeButtonDiv = createButtonDiv('Go Home', 'index.html');
 
 container.append(scoreDiv, userNameDiv, saveButtonDiv, playAgainButtonDiv, goHomeButtonDiv);
 document.body.append(container);
