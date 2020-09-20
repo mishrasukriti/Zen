@@ -6,7 +6,11 @@ let userNameDiv = createNameDiv();
 let saveButtonDiv = createSaveButtonDiv();
 
 let playAgainButtonDiv =  createButtonDiv('Play Again', 'game.html');
+<<<<<<< HEAD
 let goHomeButtonDiv = createButtonDiv('Go Home', 'index.html');
+=======
+let goHomeButtonDiv = createButtonDiv('Go Home', 'triviaDBQuiz.html');
+>>>>>>> 0a41bfaee3a250a547ba11c96bf0b77faeb00c1c
 
 container.append(scoreDiv, userNameDiv, saveButtonDiv, playAgainButtonDiv, goHomeButtonDiv);
 document.body.append(container);
@@ -92,4 +96,8 @@ function createScoreDiv() {
     scoreDivRow.setAttribute('style', 'font-size: 80px;font-weight:bold; margin-top:100px');
     scoreDivRow.innerText = sessionStorage.getItem('score');
     return scoreDivRow;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0a41bfaee3a250a547ba11c96bf0b77faeb00c1c

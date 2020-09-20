@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 let container = document.createElement('div');
+=======
+ let container = document.createElement('div');
+>>>>>>> 0a41bfaee3a250a547ba11c96bf0b77faeb00c1c
 container.classList.add('container', 'p-5');
 
 let highScoreDiv = createHighScoreDiv();
@@ -16,7 +20,11 @@ for(let i=0;i<name_score_arr2.length;i++) {
     container.appendChild(createScoreDiv(name_score_arr2[i]));
 }
 
+<<<<<<< HEAD
 let goHomeButtonDiv = createButtonDiv('Go Home', 'index.html');
+=======
+let goHomeButtonDiv = createButtonDiv('Go Home', 'triviaDBQuiz.html');
+>>>>>>> 0a41bfaee3a250a547ba11c96bf0b77faeb00c1c
 document.body.append(container, goHomeButtonDiv);
 
 
