@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width= device-width, initial-scale=1.0, shrink-to-fit=no"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+        <title> Video Player on Television</title>
+        
+        
+        
+    </head>
+    <body>
+        <script>
+            let container = document.createElement('div');
+            container.classList.add('container-fluid', 'p-5','m-5');
+
+            let pageTitleRow = document.createElement('div');
+            pageTitleRow.classList.add('row','m-5');
+
+            let pageHeading = document.createElement('h1');
+            pageHeading.classList.add('col');
+            pageHeading.setAttribute('style', 'display:flex;justify-content:center');
+            pageHeading.innerHTML = 'Video Player in TV ';
+            pageTitleRow.appendChild(pageHeading);
+            
+
+            let tvDiv = document.createElement('div');
+            tvDiv.setAttribute('class','row rounded');
+            tvDiv.setAttribute('style','border:5px solid black; width:100%;display:flex;justify-content:center')
+
+            let playListDiv = document.createElement('div');
+            playListDiv.classList.add('col');
+            playListDiv.setAttribute('id', 'playList');
+            playListDiv.setAttribute('style','float:left')
+
+            let videoDiv = document.createElement('div');
+            videoDiv.classList.add('col');
+            let video = document.createElement('video');
+            video.setAttribute('id','video');
+            video.setAttribute('style','width:100%');
+            
+
+            let source2 = document.createElement('source');
+            source2.setAttribute('id','source');
+            
+
+            video.appendChild(source2);
+
+            let timeOut2 = document.createElement('output');
+            timeOut2.setAttribute('id','timeOut');
+            timeOut2.innerText = 'Time: 0';
+
+            let vidNumber = document.createElement('output');
+            vidNumber.setAttribute('style', 'float:right');
+            vidNumber.setAttribute('id','vidNumber');
+            vidNumber.innerText = 'Video: 1/4';
+
+            videoDiv.append(video, timeOut2, vidNumber);
+
+            tvDiv.append(playListDiv,videoDiv);
+
+            
+
+            let remoteDiv = document.createElement('div');
+            remoteDiv.classList.add('row','rounded','m-5');
+            remoteDiv.setAttribute('style','display:flex;justify-content:center;font-size:25px');
+
+            let col1 = document.createElement('div');
+            col1.setAttribute('class','col-md-4');
+
+            let col2 = document.createElement('div');
+            col2.setAttribute('class','col-md-4');
+            col2.setAttribute('style','border:2px solid black; width:100%;font-size:25px; text-align:center');
+
+            let remoteTitle = document.createElement('p');
+            remoteTitle.innerText = 'REMOTE';
+            remoteTitle.setAttribute('style','font-size:25px');
+
+            let playButtonsDiv = document.createElement('div');
+            playButtonsDiv.setAttribute('class','row m-2');
+            playButtonsDiv.setAttribute('style', 'border:1px solid grey; width:100%');
+            let playButton2 = document.createElement('button');
+            playButton2.setAttribute('id', 'playButton');
+            playButton2.setAttribute('class','btn btn-primary  m-2');
+            playButton2.innerText =  'PLAY';
+
+            let pauseButton2 = document.createElement('button');
+            pauseButton2.setAttribute('id', 'pauseButton');
+            pauseButton2.setAttribute('class','btn btn-primary  m-2');
+            pauseButton2.innerText = 'PAUSE';
+
+            let stopButton2 = document.createElement('button');
+            stopButton2.setAttribute('id', 'stopButton');
+            stopButton2.setAttribute('class','btn btn-primary  m-2');
+            stopButton2.innerText = 'STOP';
+
+            let resumeButton2 = document.createElement('button');
+            resumeButton2.setAttribute('id', 'resumeButton');
+            resumeButton2.setAttribute('class','btn btn-primary  m-2');
+            resumeButton2.innerText = 'RESUME';
+
+            playButtonsDiv.append(playButton2,pauseButton2, stopButton2, resumeButton2);
+
+            let prevAndNextButtonDiv = document.createElement('div');
+            prevAndNextButtonDiv.classList.add('row','m-2');
+            prevAndNextButtonDiv.setAttribute('style', 'border:1px solid grey; width:100%')
+           
+
+            let nextButton2 = document.createElement('button');
+            nextButton2.setAttribute('id', 'nextButton');
+            nextButton2.setAttribute('class','btn btn-primary  m-2');
+            nextButton2.innerText = 'NEXT VIDEO';
+
+            let prevButton2 = document.createElement('button');
+            prevButton2.setAttribute('id', 'prevButton');
+            prevButton2.setAttribute('class','btn btn-primary  m-2');
+            prevButton2.innerText = 'PREVIOUS VIDEO';
+
+            prevAndNextButtonDiv.append(nextButton2, prevButton2);
+
+            col2.append(remoteTitle, playButtonsDiv, prevAndNextButtonDiv);
+
+            let col3 = document.createElement('div');
+            col3.setAttribute('class','col-md-4');
+
+            remoteDiv.append(col1,col2,col3);
+            container.append(pageTitleRow, tvDiv,remoteDiv);
+            document.body.append(container);
+        </script>
+
+         <script src="index.js"></script> 
+    </body>
+
+</html>
