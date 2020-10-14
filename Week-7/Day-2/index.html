@@ -12,10 +12,10 @@
     <body>
         <script>
             let container = document.createElement('div');
-            container.classList.add('container-fluid', 'p-5','m-5');
+            container.classList.add('container-fluid', 'pt-2','pl-5','pr-5');
 
             let pageTitleRow = document.createElement('div');
-            pageTitleRow.classList.add('row','m-5');
+            pageTitleRow.classList.add('row','p-2');
 
             let pageHeading = document.createElement('h1');
             pageHeading.classList.add('col');
@@ -29,12 +29,13 @@
             tvDiv.setAttribute('style','border:5px solid black; width:100%;display:flex;justify-content:center')
 
             let playListDiv = document.createElement('div');
-            playListDiv.classList.add('col');
+            playListDiv.classList.add('col-md-4');
             playListDiv.setAttribute('id', 'playList');
             playListDiv.setAttribute('style','float:left')
 
+
             let videoDiv = document.createElement('div');
-            videoDiv.classList.add('col');
+            videoDiv.classList.add('col-md-8');
             let video = document.createElement('video');
             video.setAttribute('id','video');
             video.setAttribute('style','width:100%');
@@ -53,7 +54,7 @@
             let vidNumber = document.createElement('output');
             vidNumber.setAttribute('style', 'float:right');
             vidNumber.setAttribute('id','vidNumber');
-            vidNumber.innerText = 'Video: 1/4';
+            vidNumber.innerText = 'Video: 1/7';
 
             videoDiv.append(video, timeOut2, vidNumber);
 
@@ -62,7 +63,7 @@
             
 
             let remoteDiv = document.createElement('div');
-            remoteDiv.classList.add('row','rounded','m-5');
+            remoteDiv.classList.add('row','rounded','m-4');
             remoteDiv.setAttribute('style','display:flex;justify-content:center;font-size:25px');
 
             let col1 = document.createElement('div');
