@@ -1,17 +1,35 @@
 
 
 let videosArray = [ 
-    { "name" : 'For Bigger Escapes',
-      "sources" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" 
+    {
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "name" : 'Big Buck Bunny'
     },
     {
-        "name" : 'For Bigger Fun',
-      "sources" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" 
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+        "name" : "For Bigger Fun"
     },
     {
-        "name" : 'For Bigger Joyrides',
-      "sources" : "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-    }
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+        "name": "For Bigger Rides"
+    },
+    {
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+        "name": "Sintel"
+    },
+    {
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
+        "name": "Subaru Outback "
+    },
+    {
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
+        "name": "Volkswagen Channel"
+    },
+    {
+        "sources": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+        "name": "Elephant Dream"
+    },
+    
     
 ];
 
@@ -26,14 +44,13 @@ let nextButton = (document.getElementById('nextButton') as HTMLElement);
 let timeOut = (document.getElementById('timeOut')as HTMLOutputElement);
 let vidNumOut = (document.getElementById('vidNumber')as HTMLOutputElement);
 let source = (document.getElementById('source') as HTMLSourceElement);
-
 let vidPlaying = 0;
 
  for(let i=0; i<videosArray.length; i++){
      let videoDiv = document.createElement('div');
-     videoDiv.setAttribute('class','row p-5');
+     videoDiv.setAttribute('class','row m-2');
      let videoDivCol = document.createElement('div');
-     videoDivCol.classList.add('col','rounded','border','border-secondary');
+     videoDivCol.classList.add('col','rounded','border','border-secondary','p-2');
      videoDivCol.innerText = videosArray[i].name;
      videoDivCol.setAttribute('style','background-color:#8B008B; color:white');
      videoDivCol.addEventListener('click',function(event){
@@ -52,6 +69,8 @@ let vidPlaying = 0;
      });
      videoDiv.append(videoDivCol);
      playList.append(videoDiv);
+
+    
  }
 
  /**
@@ -65,10 +84,6 @@ let vidPlaying = 0;
  resumeButton.addEventListener('click',vidAction);
 
  let timer  = null;
-
- function vidResume(event) {
-
- }
 
  function vidAction(event){
      switch(event.target.id){
@@ -140,7 +155,7 @@ let vidPlaying = 0;
         videoElement.load();
         videoElement.play();
         timer = setInterval(update, 100);
-     vidNumOut.innerHTML = (vidPlaying+1)+'/4';
+        vidNumOut.innerHTML = (vidPlaying+1)+'/7';
  }
 
  function prevVideo(){
@@ -156,5 +171,5 @@ let vidPlaying = 0;
        videoElement.load();
        videoElement.play();
        timer = setInterval(update, 100);
-    vidNumOut.innerHTML = (vidPlaying+1)+'/4';
+    vidNumOut.innerHTML = (vidPlaying+1)+'/7';
 }
