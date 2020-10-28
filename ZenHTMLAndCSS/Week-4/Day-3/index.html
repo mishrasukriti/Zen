@@ -1,0 +1,249 @@
+<html lang="en">
+    <head>
+        <title>Pagination</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            .enclosingDiv {
+                background-color: thistle;
+                font-size: 50px;
+                font-weight: bold;
+                text-align: center;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                padding-top: 40px;
+                height: 3000px;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            /**
+                fetching pagination data array from server
+            */
+            updateDataArrayInLocalStorage();
+            localStorage.setItem('currPageIndex', 1);
+            localStorage.setItem('pageSize', 5);
+            createWrapperDiv();
+
+            /**
+            Function to fetch JSON data and update in local storage.
+            */
+            function updateDataArrayInLocalStorage() {
+                var request = new XMLHttpRequest();
+                // Open a new connection, using the GET request on the URL endpoint
+                request.open('GET', 'https://raw.githubusercontent.com/Rajavasanthan/jsondata/master/pagenation.json' , true);
+                request.onload = function() {
+                    dataArr = this.responseText;
+                    localStorage.setItem("jsonData", dataArr);
+                }
+                request.send();
+            }
+
+            /**
+            Function to create wrapper div to contain table and Pagination tabs
+            */
+            function createWrapperDiv() {
+                var enclosingDiv = document.createElement('div');
+                enclosingDiv.setAttribute('class', 'enclosingDiv');
+                enclosingDiv.innerText = 'Paginating data'
+
+                var wrapperDiv = document.createElement('div');
+                wrapperDiv.id = 'wrapperDiv';
+                wrapperDiv.classList.add('container', 'p-0');
+
+                let selectInputGroup = createSelectOption();
+
+                var tableDiv = document.createElement('div');
+                tableDiv.id = 'table-page';
+                let table= createTable(1);
+
+                //Appending table to tableDiv
+                tableDiv.appendChild(table);
+
+                // Creating PaginationDiv
+                var paginationDiv = createPaginationDiv();
+                
+                wrapperDiv.append(selectInputGroup, tableDiv, paginationDiv);
+                enclosingDiv.appendChild(wrapperDiv);
+                document.body.appendChild(enclosingDiv);
+            }
+
+            function createSelectOption() {
+                let inputGroup = document.createElement('div');
+                inputGroup.classList.add('input-group');
+                inputGroup.setAttribute('style', 'margin-top:50px;margin-bottom:50px;width:160px;margin-left:50px')
+
+                let inputGroupPrepend = document.createElement('div');
+                inputGroupPrepend.classList.add('input-group-prepend');
+
+                let selectLabel = document.createElement('label');
+                selectLabel.classList.add('input-group-text');
+                selectLabel.setAttribute('for', 'pageSize');
+                selectLabel.innerText = 'Page Size';
+
+                inputGroupPrepend.appendChild(selectLabel);
+
+                let select = document.createElement('select');
+                select.classList.add('custom-select');
+                select.id = 'pageSize';
+                select.addEventListener('change', function(e) {
+                    localStorage.setItem('pageSize', e.target.value);
+                    let pageNumber= parseInt(localStorage.getItem('currPageIndex'));
+                    let newTable = createTable(pageNumber);
+                    let wrapperDiv = document.getElementById('wrapperDiv');
+                    let originalTable = wrapperDiv.childNodes[1];
+                    wrapperDiv.replaceChild(newTable, originalTable);
+                    wrapperDiv.replaceChild(createPaginationDiv(), wrapperDiv.childNodes[2]);
+                    localStorage.setItem('currPageIndex', 1);
+                });
+
+                for(let i=5;i<=50;i+=5) {
+                    let option = document.createElement('option');
+                    option.value = i;
+                    option.innerText = i;
+                    select.appendChild(option);
+                }
+                inputGroup.append(inputGroupPrepend, select);
+                return inputGroup;
+            }
+
+            /**
+            Function to create pagination buttons and append into pagination div
+            */
+            function createPaginationDiv() {
+                var pageSize = parseInt(localStorage.getItem('pageSize'));
+                var pages = Math.ceil(100/pageSize);
+                var paginationDiv = document.createElement('div');
+                paginationDiv.classList.add('pagination' , 'justify-content-center', 'p-5');
+
+                let nav = document.createElement('nav');
+                
+                let previousButton = document.createElement('button');
+                previousButton.classList.add('btn', 'btn-sm', 'btn-primary', 'page-item');
+                previousButton.innerText = 'Prev';
+
+                // Appending previous button to nav
+                nav.appendChild(previousButton);
+
+                // EventListner for previous button
+                previousButton.addEventListener('click', function(e){
+                    let pageNumber;
+                    if(localStorage.getItem('currPageIndex')===1) pageNumber= localStorage.getItem('currPageIndex');
+                    else pageNumber= parseInt(localStorage.getItem('currPageIndex'))-1;
+                    localStorage.setItem('currPageIndex',pageNumber);
+                    let newTable = createTable(pageNumber);
+                    let wrapperDiv = document.getElementById('wrapperDiv');
+                    let originalTable = wrapperDiv.childNodes[1];
+                    wrapperDiv.replaceChild(newTable, originalTable);
+                });
+
+                // Creating Page Link Buttons
+                for(let i=1; i<=pages;i++){
+                    let buttonName = document.createElement('button');
+                    buttonName.classList.add('btn', 'btn-sm','btn-outline-primary', 'page-item');
+                    buttonName.innerText=i;
+                    buttonName.id = 'button' + i;
+                    buttonName.addEventListener('click', function(e) {
+                        localStorage.setItem("currPageIndex", i);
+                        let newTable = createTable(i);
+                        let wrapperDiv = document.getElementById('wrapperDiv');
+                        let originalTable = wrapperDiv.childNodes[1];
+                        wrapperDiv.replaceChild(newTable, originalTable);
+                    });
+                    nav.appendChild(buttonName);
+                }
+
+                //next button
+                let nextButton = document.createElement('button');
+                nextButton.classList.add('btn', 'btn-sm', 'btn-primary', 'page-item');
+                nextButton.innerText = 'Next';
+
+                nav.append(nextButton);
+
+                // EventListner for next button
+                nextButton.addEventListener('click', function(e){
+                    let pageNumber;
+                    let lastPageIndex = Math.ceil(100/parseInt(localStorage.getItem('pageSize')));
+                    if(localStorage.getItem('currPageIndex')===lastPageIndex) pageNumber= localStorage.getItem('currPageIndex');
+                    else pageNumber = parseInt(localStorage.getItem('currPageIndex'))+1;
+                    // console.log("in next event listener. pageNumber:" + pageNumber);
+                    localStorage.setItem('currPageIndex',pageNumber);
+                    let newTable = createTable(pageNumber);
+                    let wrapperDiv = document.getElementById('wrapperDiv');
+                    let originalTable = wrapperDiv.childNodes[1];
+                    wrapperDiv.replaceChild(newTable, originalTable);
+                });
+
+                paginationDiv.appendChild(nav);
+                return paginationDiv;
+
+                
+            }
+
+            // var button2 = document.getElementById('button2');
+            
+
+            /**
+                Function to Create Table
+            */
+            function createTable(pageNumber){
+                let arr = JSON.parse(localStorage.getItem("jsonData"));
+                
+                let rows_per_page = parseInt(localStorage.getItem('pageSize'));
+                let startIndex= rows_per_page*(pageNumber-1);
+                let endIndex= startIndex+ rows_per_page - 1;
+                if(endIndex>=99)endIndex=99;
+                
+                let table= document.createElement('table');
+                table.classList.add('table', 'table-striped');
+                let tableHead= document.createElement('thead');
+                tableHead.classList.add("thead-dark");
+                let tableHeadRow= document.createElement('tr');
+                let tableHeadcol1= document.createElement('th');
+                tableHeadcol1.scope = "col";
+                tableHeadcol1.innerText= 'Id';
+
+                let tableHeadcol2= document.createElement('th');
+                tableHeadcol2.scope = "col";
+                tableHeadcol2.innerText= 'name';
+
+                let tableHeadcol3= document.createElement('th');
+                tableHeadcol3.scope = "col";
+                tableHeadcol3.innerText= 'Email';
+
+                // Appending table head elements
+                tableHeadRow.append(tableHeadcol1, tableHeadcol2, tableHeadcol3);
+                tableHead.append(tableHeadRow);
+
+                table.append(tableHead);
+
+                //Creating table body
+                let tableBody= document.createElement('tbody');
+
+                for(let i= startIndex; i<= endIndex; i++){
+                    let row= document.createElement('tr');
+                    let col1= document.createElement('td');
+                    col1.innerText= arr[i].id;
+
+                    let col2= document.createElement('td');
+                    col2.innerText= arr[i].name;
+
+                    let col3= document.createElement('td');
+                    col3.innerText= arr[i]["email"];
+
+                    row.append(col1, col2, col3);
+                    tableBody.append(row);
+                }
+                table.appendChild(tableBody);
+                return table;
+            }
+
+            /**
+            */
+            
+        </script>
+
+        
+
+          
+    </body>
+</html>

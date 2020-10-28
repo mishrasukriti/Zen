@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <title>8 digit Random Number Generator</title>
+        <link rel="stylesheet" href="RandomNumberGeneratorCSS.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+    </head>
+
+    <body>
+        <script>
+            // Title div with Simple Calculator
+            var titleDiv= document.createElement('div');
+            titleDiv.setAttribute('class', 'titleDiv');
+            var titleText= document.createElement('p');
+            titleText.innerHTML='Random Number Generator';
+            titleDiv.append(titleText);
+
+            //creating a div for button
+            var buttonDiv= document.createElement('div');
+            buttonDiv.setAttribute('class', 'text-center p-5');
+
+            //creating Generate button
+            var generate_button=document.createElement('button');
+            generate_button.setAttribute('type', 'button');
+            generate_button.setAttribute('class', 'btn btn-success btn-lg ');
+            generate_button.setAttribute('style', 'margin-top:50px');
+            generate_button.innerText= 'Generate';
+
+            //appending button to  buttonDiv
+            buttonDiv.appendChild(generate_button);
+
+            //output Box showing the generated Random number
+            var outputBoxDiv= document.createElement('div');
+            outputBoxDiv.setAttribute('class', 'border border-primary text-center');
+            outputBoxDiv.setAttribute('style', 'color:black;height: 65px;width: 580px;font-size: 40px;margin-left:420px; ');
+            outputBoxDiv.innerText = '';
+
+            //generating random nhumber after clicking the Generate Button
+            
+
+            //appending titleDiv to body
+            document.body.append(titleDiv, buttonDiv, outputBoxDiv);
+            generate_button.addEventListener("click", function() {
+                let str='';
+                let min=10000000;
+                let max=99999999;
+                var num= randomNumber8DigitGenerator(min,max);
+                //var num= randomNumber8DigitGenerator(str);
+                outputBoxDiv.innerText =num;
+            });
+
+            //function to generate 8 digit random number
+            // function randomNumber8DigitGenerator(str){
+            //     if(str.length===8)  return str;
+                
+            //     else if(str.length===0){
+            //         let randomNumber= Math.floor((Math.random() * 9) + 1);
+                    
+            //         str+= randomNumber;
+            //     } 
+            //     else{
+            //         let randomNumber= (Math.floor((Math.random() * 10) + 1))%10;
+            //         if(str.includes('randomNumber')===false) {
+            //             str+= randomNumber;
+                        
+            //         } 
+            //     } 
+            //     return randomNumber8DigitGenerator(str); 
+            //  }
+
+            function randomNumber8DigitGenerator(min, max){
+                //count++;
+                let randomNumber= Math.floor(Math.random()*(max-min)+min);
+                let stringData= randomNumber.toString().split('');
+                if(new Set(stringData).size!==stringData.length){
+                    return randomNumber8DigitGenerator(min, max);
+                }
+                
+                // console.log("total number of times fn is called " + count);
+                // count=0;
+                return randomNumber;
+            }
+
+            
+            
+        </script>
+    </body>
+</html>

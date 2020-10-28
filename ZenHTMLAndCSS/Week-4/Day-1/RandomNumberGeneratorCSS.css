@@ -1,0 +1,20 @@
+.titleDiv{
+    background-color: royalblue;
+    height:70px;
+    width: 100%;
+    vertical-align: top;
+    font-size: 34px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+
+/* .outputBoxDiv {
+    color:black;
+    height: 65px;
+    width: 580px;
+    font-size: 40px;
+    margin-top: 80px;
+    margin-left:200px;
+    /* text-emphasis-color: green; 
+} */

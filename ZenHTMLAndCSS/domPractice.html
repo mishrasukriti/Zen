@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <style>
+            .mycontainer{
+                background-color:blue;
+             }
+
+             .mycontainer-1{
+                 background-color: pink;
+             }
+        </style>
+    </head>
+
+    <body>
+        <script>
+            var div=document.createElement('div');
+            div.setAttribute('class', 'container mycontainer');
+            div.innerText='HELLO';
+            div.setAttribute('id', 'contain');
+            div.innerHTML= '<p> container-1 </p>';
+
+            var container2=document.createElement('div');
+            container2.setAttribute('class', 'container mycontainer');
+            container2.setAttribute('id', 'contain-2');
+            container2.innerText='container-2';
+            
+            var img=document.createElement('img');
+            img.setAttribute('class' ,'img-thumbnail');
+            img.setAttribute('src', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg');
+            div.append(img);
+            
+            var div2=document.createElement('div');
+            div2.setAttribute('class', 'container mycontainer-1');
+            div2.innerText='HELLO WORLD';
+
+            var alertButton= document.createElement("button");
+            alertButton.innerText="click me";
+            alertButton.setAttribute("class","btn btn-primary" );
+            alertButton.setAttribute('onclick', 'showAlert()');
+
+            var promtButton= document.createElement("button");
+            promtButton.innerText="Promt me";
+            promtButton.setAttribute("class","btn btn-primary" );
+            promtButton.setAttribute('onclick', 'showPrompt()');
+            
+
+            function showAlert(){
+                alert('Thank you');
+            }
+
+            function showPrompt(){
+                    var valid= prompt('Enter Valur');
+                    console.log(valid);
+            }
+            var value1=document.getElementsByClassName('container');
+            console.log(value1.innerText);
+
+            document.body.appendChild(alertButton);
+            document.body.append(div, div2,alertButton, promtButton);
+            console.log(value);
+
+        </script>
+    </body>
+</html>

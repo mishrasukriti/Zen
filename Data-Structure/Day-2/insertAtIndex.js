@@ -6,7 +6,13 @@ class ListNode{
     } 
 }
 
-insert(index, element, head){
+/**
+ * @param {Number} index
+ * @param {Number} element
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+function insert(index, element, head){
 	let temp = head;
 	let newNode = new ListNode(element);
 	

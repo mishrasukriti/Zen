@@ -1,0 +1,385 @@
+<html lang="en">
+    <head>
+        <title>User Registration</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+       
+    </head>
+
+    <body>
+        <script>
+            //  Creating Outer Div containing all form elements
+            var outerDiv= document.createElement('div');
+            outerDiv.setAttribute('style', 'margin: 100px 200px 100px 200px; background-color:#e6e6e8; height: 1900px; padding-left:100px; padding-right:100px');
+            
+            // Creating form to fill the data
+            var signUpForm= document.createElement('form');
+            signUpForm.setAttribute('method', 'POST');
+            signUpForm.setAttribute('class', 'p-5');
+            signUpForm.setAttribute('id', 'submitForm');
+
+            /**
+            Form row and form group for firstName and lastName.
+            */
+            var formRowForName = document.createElement('div');
+            formRowForName.classList = 'form-row';
+
+            // var formRowForFirstName = document.createElement('div');
+            // formRowForFirstName.classList = 'form-row';
+
+            var formGroupForFirstName = document.createElement('div');
+            formGroupForFirstName.classList = 'form-group col-md-6';
+
+            var labelForFirstName = document.createElement('label');
+            labelForFirstName.setAttribute('for', 'firstName');
+            labelForFirstName.innerText = 'First Name';
+
+            var inputForFirstName = document.createElement('input');
+            inputForFirstName.type = 'text';
+            inputForFirstName.className = 'form-control';
+            inputForFirstName.id = 'firstName';
+            inputForFirstName.required = true;
+
+            var formGroupForLastName = document.createElement('div');
+            formGroupForLastName.classList = 'form-group col-md-6';
+
+            var labelForLastName = document.createElement('label');
+            labelForLastName.setAttribute('for', 'lastName');
+            labelForLastName.innerText = 'Last Name';
+
+            var inputForLastName = document.createElement('input');
+            inputForLastName.type = 'text';
+            inputForLastName.className = 'form-control';
+            inputForLastName.id = 'lastName';
+            inputForLastName.required = true;
+
+            formGroupForFirstName.append(labelForFirstName, inputForFirstName);
+            formGroupForLastName.append(labelForLastName, inputForLastName);
+            formRowForName.append(formGroupForFirstName, formGroupForLastName);
+
+
+            /**
+            Form row for Address and pincode
+            */
+            var formRowForAddressAndPincode = document.createElement('div');
+            formRowForAddressAndPincode.classList = 'form-row';
+
+            //Form group for Address
+            var formGroupForAddress = document.createElement('div');
+            formGroupForAddress.classList = 'form-group col-md-10';
+
+            var labelForAddress = document.createElement('label');
+            labelForAddress.setAttribute('for', 'address');
+            labelForAddress.innerText = 'Address';
+
+            var inputForAddress = document.createElement('input');
+            inputForAddress.type = 'text';
+            inputForAddress.className = 'form-control';
+            inputForAddress.id = 'address';
+            inputForAddress.required = true;
+            
+            formGroupForAddress.append(labelForAddress, inputForAddress);
+
+            //Form group for Pincode
+            var formGroupForPincode = document.createElement('div');
+            formGroupForPincode.classList = 'form-group col-md-2';
+
+            var labelForPincode = document.createElement('label');
+            labelForPincode.setAttribute('for', 'address');
+            labelForPincode.innerText = 'Pincode';
+
+            var inputForPincode = document.createElement('input');
+            inputForPincode.type = 'text';
+            inputForPincode.className = 'form-control';
+            inputForPincode.id = 'pincode';
+            inputForPincode.required = true;
+            
+            formGroupForPincode.append(labelForPincode, inputForPincode);
+
+            formRowForAddressAndPincode.append(formGroupForAddress, formGroupForPincode);
+
+            // Form row for country and state
+            var formRowForCountryAndState = document.createElement('div');
+            formRowForCountryAndState.classList = 'form-row';
+
+            //Form group for Country
+            var formGroupForCountry = document.createElement('div');
+            formGroupForCountry.classList = 'form-group col-md-6';
+
+            var labelForCountry = document.createElement('label');
+            labelForCountry.setAttribute('for', 'country');
+            labelForCountry.innerText = 'Country';
+
+            var selectForCountry = document.createElement('select');
+            selectForCountry.type = 'text';
+            selectForCountry.className = 'form-control';
+            selectForCountry.id = 'country';
+            selectForCountry.required = true;
+
+            var optionIN = createOption("IN", "India");
+            var optionUS = createOption("US", "United States");
+            var optionUK = createOption("UK", "United Kindgom");
+            var optionES = createOption("ES", "Espaine");
+            var optionSL = createOption("SL", "SriLanka");
+            selectForCountry.append(optionIN, optionES, optionUK, optionUK, optionSL);
+            
+            formGroupForCountry.append(labelForCountry, selectForCountry);
+            
+
+            //Form group for State
+            var formGroupForState = document.createElement('div');
+            formGroupForState.classList = 'form-group col-md-6';
+
+            var labelForState = document.createElement('label');
+            labelForState.setAttribute('for', 'state');
+            labelForState.innerText = 'State';
+
+            var selectForState = document.createElement('select');
+            selectForState.type = 'text';
+            selectForState.className = 'form-control';
+            selectForState.id = 'state';
+            selectForState.required = true;
+
+            var optionUP = createOption("UP", "Uttar Pradesh");
+            var optionKA = createOption("KA", "Karnataka");
+            var optionDel = createOption("DEL", "DELHI");
+            var optionAP = createOption("AP", "Andhra Pradesh");
+            var optionMP = createOption("MP", "Madhya Pradesh");
+            var optionRJ = createOption("RJ", "Rajasthan");
+            var optionGJ = createOption("GJ", "Gujrat");
+            selectForState.append(optionUP ,optionKA ,optionDel,optionAP,optionMP ,optionRJ ,optionGJ);
+
+            formGroupForState.append(labelForState, selectForState);
+            formRowForCountryAndState.append(formGroupForCountry, formGroupForState);
+
+            /**
+            Creating radio buttons for Gender
+            */
+            var formRowForGender = document.createElement('div');
+            formRowForGender.classList = 'form-row';
+
+            var formGroupForGender = document.createElement('div');
+            formGroupForGender.className = 'form-group p-2';
+            formGroupForGender.innerText = 'Please select your Gender';
+            formRowForGender.id = 'genderGroup';
+
+            var maleFormCheckDiv = document.createElement('div');
+            maleFormCheckDiv.className = 'form-check form-check-inline pl-4';
+            var radioForMale = createRadioButton('gender', 'male', 'gender');
+            var labelForMale = createLabel('male', 'Male');
+            maleFormCheckDiv.append(radioForMale, labelForMale);
+            
+            var femaleFormCheckDiv = document.createElement('div');
+            femaleFormCheckDiv.className = 'form-check form-check-inline pl-4';
+            var radioForFemale = createRadioButton('gender', 'female', 'gender');
+            var labelForFemale = createLabel('female', 'Female');
+            femaleFormCheckDiv.append(radioForFemale, labelForFemale);
+
+            var transGenFormCheckDiv = document.createElement('div');
+            transGenFormCheckDiv.className = 'form-check form-check-inline pl-4';
+            var radioForTrans = createRadioButton('gender', 'trans', 'gender');
+            var labelForTrans = createLabel('trans', 'Trans-Gender');
+            transGenFormCheckDiv.append(radioForTrans, labelForTrans);
+
+            formGroupForGender.append(maleFormCheckDiv, femaleFormCheckDiv, transGenFormCheckDiv);
+            formRowForGender.append(formGroupForGender);
+
+
+            /**
+            Creating check-boxes for Food
+            */
+            var formRowForFood = document.createElement('div');
+            formRowForFood.classList = 'form-row';
+
+            var formGroupForFood = document.createElement('div');
+            formGroupForFood.className = 'form-group p-2';
+            formGroupForFood.innerText = 'Please select your Food choices';
+
+            var indianFormCheckDiv = document.createElement('div');
+            indianFormCheckDiv.className = 'form-check pl-4';
+            var boxForIndian = createCheckBox('Indian', 'Indian');
+            var labelForIndian = createLabel('Indian', 'Indian');
+            indianFormCheckDiv.append(boxForIndian, labelForIndian);
+
+            var mughlaiFormCheckDiv = document.createElement('div');
+            mughlaiFormCheckDiv.className = 'form-check pl-4';
+            var boxForMughlai = createCheckBox('Mughlai', 'Mughlai');
+            var labelForMughlai = createLabel('Mughlai', 'Mughlai');
+            mughlaiFormCheckDiv.append(boxForMughlai, labelForMughlai);
+
+            var chineseFormCheckDiv = document.createElement('div');
+            chineseFormCheckDiv.className = 'form-check pl-4';
+            var boxForChinese = createCheckBox('Chinese', 'Chinese');
+            var labelForChinese = createLabel('Chinese', 'Chinese');
+            chineseFormCheckDiv.append(boxForChinese, labelForChinese);
+
+            var continentalFormCheckDiv = document.createElement('div');
+            continentalFormCheckDiv.className = 'form-check pl-4';
+            var boxForcontinental = createCheckBox('Continental', 'Continental');
+            var labelForcontinental = createLabel('Continental', 'Continental');
+            continentalFormCheckDiv.append(boxForcontinental, labelForcontinental);
+
+            var italianFormCheckDiv = document.createElement('div');
+            italianFormCheckDiv.className = 'form-check pl-4';
+            var boxForItalian= createCheckBox('Italian', 'Italian');
+            var labelForItalian = createLabel('Italian', 'Italian');
+            italianFormCheckDiv.append(boxForItalian, labelForItalian);
+            
+            
+
+            formGroupForFood.append(indianFormCheckDiv, mughlaiFormCheckDiv, chineseFormCheckDiv, continentalFormCheckDiv, italianFormCheckDiv);
+            formRowForFood.append(formGroupForFood);
+
+            /**
+            Submit button
+            */
+            var formRowForSubmit = document.createElement('div');
+            formRowForSubmit.classList = 'form-row pt-5';
+            formRowForSubmit.setAttribute('style', 'margin-left:250px');
+
+            var submitButton = document.createElement('button');
+            submitButton.classList = 'btn btn-lg btn-primary';
+            submitButton.type = 'submit';
+            submitButton.innerText = 'Submit';
+            formRowForSubmit.append(submitButton);
+
+            signUpForm.addEventListener('submit', function(e) {
+                // alert("Form submitted successfully");
+                e.preventDefault();
+                const signUpForm= document.getElementById('submitForm');
+                // console.log("form content:" + signUpForm);
+                // console.log("found more than 2 checkboxes");
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                var selectedMeals = [];
+                for(const food of checkboxes) {
+                    if(food.checked) {
+                        selectedMeals.push(food);
+                    }
+                }
+                if(selectedMeals.length<2) {
+                    alert("Please select at least 2 Food choices");
+                    return false;
+                }
+                showTable();
+            });
+
+            function showTable() {
+                // Creating title  Div
+                var titleDiv=document.createElement('div');
+                titleDiv.setAttribute('style','background-color:blue; font-size:40px; color:white;');
+                titleDiv.setAttribute('class', 'text-center');
+                var textDiv=document.createElement('div');
+                textDiv.innerText= "Submitted Details";
+                titleDiv.appendChild(textDiv);
+
+                var table= document.createElement('table');
+                table.style = 'border: 1px solid #ddd;text-align: left;border-collapse: collapse;width: 100%;';
+                var tableBody= document.createElement('tbody');
+                var row1= createRowDiv('First Name', 'firstName');
+                var row2= createRowDiv('Last Name', 'lastName');
+                var row3= createRowDiv('Address', 'address');
+                var row4= createRowDiv('Pincode', 'pincode');
+                var row5= createRowDiv('State', 'state');
+                var row6= createRowDiv('Country', 'country');
+                var row7= document.createElement('tr');
+                var row7_col1= document.createElement('td');
+                row7_col1.innerText= 'Gender';
+                var row7_col2= document.createElement('td');
+                var radioButtons = document.querySelectorAll('input[type="radio"]');
+                for(let button of radioButtons) {
+                    if(button.checked) {
+                        row7_col2.innerText = button.value;
+                        break;
+                    }
+                }
+                row7.append(row7_col1, row7_col2);
+
+                var row8= document.createElement('tr');
+                var row8_col1= document.createElement('td');
+                row8_col1.innerText= 'Food Choice';
+                var row8_col2= document.createElement('td');
+                var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                for(let button of checkboxes) {
+                    if(button.checked) {
+                        row8_col2.innerText += (" " + button.value);
+                    }
+                }
+                row8.append(row8_col1, row8_col2);
+                
+
+                tableBody.append(row1, row2, row3, row4, row5, row6, row7, row8);
+                table.appendChild(tableBody);
+
+                //Appending to outer Div
+                outerDiv.append(titleDiv, table);
+                document.body.append(outerDiv);
+
+                function createRowDiv(attribute, id) {
+                    var row= document.createElement('tr');
+                    var row_col1= document.createElement('td');
+                    row_col1.innerText= attribute;
+                    var row_col2= document.createElement('td');
+                    row_col2.innerText= document.getElementById(id).value;
+                    row.append(row_col1, row_col2);
+                    return row;
+                }
+            }
+            
+            /**
+            Appenders
+            */
+            signUpForm.append(formRowForName, formRowForAddressAndPincode, formRowForCountryAndState, formRowForGender, formRowForFood, formRowForSubmit);
+            outerDiv.append(signUpForm);
+            document.body.append(outerDiv);
+
+
+
+            // function validateCheckBoxAndGenerateTable() {
+                
+            // }
+            
+            //Table 
+            
+        
+            /**
+            Functions for creating tags and utilities
+            */
+            function createOption(value, innerText) {
+                var option = document.createElement('option');
+                option.setAttribute('value', value);
+                option.innerText = innerText;
+                return option;
+            }
+
+            function createRadioButton(id, value, name) {
+                var radioButton = document.createElement('input');
+                radioButton.className = 'form-check-input';
+                radioButton.type = 'radio';
+                radioButton.id = id;
+                radioButton.name = name;
+                radioButton.value = value;
+                return radioButton;
+            }
+
+            function createCheckBox(id, value) {
+                var checkbox = document.createElement('input');
+                checkbox.type= 'checkbox';
+                checkbox.className = 'form-check-input';
+                checkbox.id = id;
+                checkbox.value = value;
+                return checkbox;
+            }
+
+            function createLabel(id, innerText) {
+                var label = document.createElement('label');
+                label.for = id;
+                label.innerText = innerText;
+                label.className = 'form-check-label';
+                return label;
+            }
+        </script>
+         
+
+
+       
+    </body>
+</html> 

@@ -1,3 +1,8 @@
+/**
+ * @param {string} s
+ * @param {number} cost
+ * @return {number}
+ */
 var minCost = function(s, cost) {
     let curr_max = Math.MIN_VALUE;
     let sum = 0;

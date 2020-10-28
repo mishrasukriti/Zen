@@ -6,14 +6,16 @@ class ListNode{
     } 
 }
 
-delete(index,head){
+/**
+ * @param {Number} index
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+function delete(index,head){
 	let temp = head;
-	let newNode = new ListNode(element);
 	
 	if(index===0) {
-		newNode.next= head;
-		head = newNode;
-		return head;
+		return head.next;
 	}
 	let count = 0;
 	while(temp.next!=null){
@@ -22,9 +24,9 @@ delete(index,head){
 		count++;
 	}	
 
-	if(count===index-1){
-		newNode.next = temp.next;
-		temp.next = newNode;
+	if(count===index-1 ){
+		if(temp.next!==null)	temp.next = temp.next.next;
+		else temp.next= null;
 	}
 	return head;
 }

@@ -1,0 +1,84 @@
+body {
+    margin: 40px;
+  }
+  
+  .wrapper {
+          display: grid;
+        grid-gap: 10px;
+          grid-template-columns: [col1-start] 350px  [col2-start] 350px [col2-end];
+          grid-template-rows: [row1-start] auto [row2-start] auto [row3-start] auto [row4-start] auto [row5-start] auto [row6-start] auto [row7-start] auto [row7-end];
+          background-color:#808080;
+          color: #444;
+          padding-right: 80px;
+          padding-left: 70px;
+            height: 1900px;
+            padding-bottom: 100px;
+            padding-top: 100px;
+      }
+  
+      .box {
+          color: #fff;
+          border-radius: 5px;
+          padding: 20px;
+          font-size: 150%;
+  
+      }
+  
+    
+      .a {
+          grid-column: col1-start / col2-start;
+          grid-row: row2-start ;
+          background-color: orange;
+      }
+      .b {
+          grid-column: col2-start / col2-end ;
+          grid-row: row2-start ;
+          background-color: skyblue;
+      }
+
+      .c {
+        grid-column: col1-start / col2-end ;
+        grid-row: row3-start ;
+        background-color: tomato;
+    }
+
+    .d {
+        grid-column: col1-start / col2-end ;
+        grid-row: row3-start ;
+        background-color: skyblue;
+    }
+
+    .e {
+        grid-column: col1-start / col2-start;
+        grid-row: row4-start ;
+        background-color: tomato;
+    }
+    .f {
+        grid-column: col2-start / col2-end ;
+        grid-row: row4-start ;
+        background-color: orange;
+    }
+
+    .g {
+        grid-column: col1-start / col2-end ;
+        grid-row: row5-start ;
+        background-color: skyblue;
+    }
+
+    .h {
+        grid-column: col1-start / col2-end ;
+        grid-row: row6-start ;
+        background-color: orange;
+    }
+
+    .i {
+        grid-column: col1-start / col2-start;
+        grid-row: row7-start ;
+        background-color: skyblue;
+        
+    }
+    .j {
+        grid-column: col2-start / col2-end ;
+        grid-row: row7-start ;
+        background-color: tomato;
+    }

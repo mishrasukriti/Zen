@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width= device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        
+        <title>Pet Shop</title>
+        
+        <script> var exports = {}; </script>
+        
+        
+    </head>
+    <body>
+        
+       
+        <script>
+            let container = document.createElement('div');
+            container.classList.add('container', 'p-5');
+
+            let pageTitle = document.createElement('h1');
+            pageTitle.classList.add('row');
+            pageTitle.innerHTML = 'Pet Shop';
+            pageTitle.setAttribute('style', 'align-content:center;margin-left:400px');
+
+            let petInformationFillingDiv = document.createElement('div');
+            petInformationFillingDiv.classList.add('row', 'p-5');
+            let inputPetTypeAndCountDiv = createInputPetTypeAndCountDiv();
+            petInformationFillingDiv.append(inputPetTypeAndCountDiv);
+
+            // //Creating PetShop object
+            // let petShop2 = new PetShop();
+
+            // Creating Buttons
+            let buttonsDiv = document.createElement('div');
+            buttonsDiv.classList.add('row', 'p-5');
+            let addAvailabilityButton = createButton('addPetAvailability', 'Add Availability');
+            let addEnquiryButton = createButton('addPetEnquiry', 'Add Pet Enquiry');
+            let mapRequestToEnquiryButton = createButton('mapRequestToEnquiry', 'Map Pet requests');
+            
+            let getAvailablityStatusButton = createButton('getAvailabilityStatus', 'Get Availability Status');
+            let getStatusForFirstFiveEnquiryButton = createButton('getFirstFiveEnquiryStatus', 'Get 5 Enquiry Status');
+            buttonsDiv.append(addAvailabilityButton, addEnquiryButton, mapRequestToEnquiryButton, getAvailablityStatusButton, getStatusForFirstFiveEnquiryButton);
+
+
+            container.append(pageTitle, petInformationFillingDiv, buttonsDiv);
+            document.body.append(container);
+
+            // function to create a button
+            function createButton(buttonId, buttonText) {
+                let buttonDiv = document.createElement('div');
+                buttonDiv.classList.add('row', 'm-5');
+                let colDiv  = document.createElement('div');
+                colDiv.setAttribute('class','col');
+                
+
+                let button = document.createElement('button');
+                button.setAttribute('type', 'button');
+                button.classList.add('btn', 'btn-primary');
+                button.innerText = buttonText;
+                button.id = buttonId;
+
+                colDiv.append(button);
+                buttonDiv.appendChild(colDiv);
+
+                return buttonDiv;
+                
+            }
+
+        /**
+         * Function to create form and Input elements
+         **/
+
+            function createInputPetTypeAndCountDiv() {
+                
+                let inputDiv = document.createElement('div');
+                inputDiv.classList.add('row');
+
+                let form = document.createElement('form');
+
+                let petTypeDiv = document.createElement('div');
+                petTypeDiv.classList.add('col', 'form-group');
+                
+                let availabilityPetTypeLabel = document.createElement('label');
+                availabilityPetTypeLabel.innerHTML = 'Pet Type';
+                availabilityPetTypeLabel.setAttribute('for', 'petType');
+                // availabilityPetTypeLabel.id = 'petType';
+
+                let petTypeInputBox = document.createElement('input');
+                petTypeInputBox.setAttribute('type', 'text');
+                petTypeInputBox.classList.add('form-control');
+                petTypeInputBox.setAttribute('placeholder', 'Enter Pet Type');
+                petTypeInputBox.id = 'petType';
+                
+                petTypeDiv.append(availabilityPetTypeLabel, petTypeInputBox);
+
+                let petCountDiv = document.createElement('div');
+                petCountDiv.classList.add('col', 'form-group');
+                
+                let availabilityPetCountLabel = document.createElement('label');
+                availabilityPetCountLabel.innerHTML = 'Pet Count';
+                availabilityPetCountLabel.setAttribute('for', 'petCount');
+                // availabilityPetCountLabel.id = 'petCount';
+
+                let petCountInputBox = document.createElement('input');
+                petCountInputBox.setAttribute('type', 'text');
+                petCountInputBox.classList.add('form-control');
+                petCountInputBox.setAttribute('placeholder', 'Enter Pet Count');
+                petCountInputBox.id = 'petCount';
+                
+                petCountDiv.append(availabilityPetCountLabel, petCountInputBox);
+
+                let petCharDiv = document.createElement('div');
+                petCharDiv.classList.add('col', 'form-group');
+                
+                let petCharLabel = document.createElement('label');
+                petCharLabel.innerHTML = 'Enter Pet Characterstics';
+                petCharLabel.setAttribute('for', 'petChar');
+                // petCharLabel.id = 'petChar';
+
+                let petCharInputBox = document.createElement('input');
+                petCharInputBox.setAttribute('type', 'text');
+                petCharInputBox.classList.add('form-control');
+                petCharInputBox.setAttribute('placeholder', 'Enter Pet Characterstics: color, weight, age');
+                petCharInputBox.id = 'petChar';
+                
+                petCharDiv.append(petCharLabel, petCharInputBox);
+
+                let petHistoryDiv = document.createElement('div');
+                petHistoryDiv.classList.add('col', 'form-group');
+                
+                let petHistoryLabel = document.createElement('label');
+                petHistoryLabel.innerHTML = 'Pet History';
+                petHistoryLabel.setAttribute('for', 'petHistory');
+                // petHistoryLabel.id = 'petHistory';
+
+                let petHistoryInputBox = document.createElement('input');
+                petHistoryInputBox.setAttribute('type', 'text');
+                petHistoryInputBox.classList.add('form-control');
+                petHistoryInputBox.setAttribute('placeholder', 'Enter Pet History');
+                petHistoryInputBox.id = 'petHistory';
+                
+                petHistoryDiv.append(petHistoryLabel, petHistoryInputBox);
+
+                form.append(petTypeDiv, petCountDiv, petCharDiv, petHistoryDiv);
+                
+                inputDiv.append(form);
+                return inputDiv;
+            }
+
+            
+        </script>
+        <script src="./public/bundle.js"></script>
+        
+    </body>
+</html>

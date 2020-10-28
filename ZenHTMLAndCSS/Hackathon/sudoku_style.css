@@ -1,0 +1,142 @@
+.hidden{
+    display: none;
+}
+
+body.dark{
+    background-color: #333333;
+    color: white;
+}
+
+.headerDiv{
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid violet;
+}
+
+h1{
+    font-size: 15pt;
+}
+
+#setup-game{
+    display: flex;
+    justify-content: center;
+}
+
+#setup-game > *{
+    margin-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;  
+    display: flex;
+    align-items: center;
+}
+
+button{
+    justify-self: center;
+    background-color: coral;
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    border-style: hidden;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+span#timerP{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    position: absolute;
+    /* margin-left: 35px; */
+    top: 300px;
+    width: 180px;
+    height: 110px;
+    padding-top: 15px;
+    background-color: #FF5D8F;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px;
+    font-weight: bold;
+} 
+
+span#scoreP{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    width: 100px;
+    position: absolute;
+    /* margin-left: 35px; */
+    padding: 15px;
+    top: 500px;
+    
+    width: 150px;
+    height: 90px;
+    padding-top: 15px;
+    background-color: #FF5D8F;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#game{
+    display: flex;
+    justify-content: center;
+}
+
+#number-container >p{
+    border: 1px solid royalblue;
+    border-radius: 20%;
+    width:  40px;
+    height: 40px;
+    font-size: 30px;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#board{
+    padding-top: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 500px;
+    height: 500px;
+}
+
+.tile{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    margin: 0px;
+    vertical-align: middle;
+    font-size:  30pt;
+}
+
+p.selected{
+    background-color:  #FF5D8F;
+}
+
+p.filled {
+    background-color:  coral;   
+}
+
+p.incorrect{
+    background-color:  red; 
+}
+
+.rightBorder{
+    border-right: 4px solid black;
+}
+
+.bottomBorder{
+    border-bottom: 4px solid black;
+}
+
+.hide_congrats_div {
+    display: none;
+}

@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title> Date Manipulation DOM </title>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <style>
+            .titleDiv{
+                background-color: orange;
+                height:100px;
+                width: 100%;
+                vertical-align: top;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+                color: black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <script>
+            var containerDiv= document.createElement('div');
+            containerDiv.setAttribute('style', 'height:100%');
+            
+            // Title div with Date Manipulation
+            var titleDiv= document.createElement('div');
+            titleDiv.setAttribute('class', 'titleDiv');
+            var titleText= document.createElement('p');
+            titleText.setAttribute('style', 'padding-top:10px');
+            titleText.innerHTML='Date Manipulation';
+            titleDiv.append(titleText);
+
+            //Informing user to enter his/her Date of Birth
+            let textDiv= document.createElement('div');
+            textDiv.setAttribute('class','text-center p-5' );
+            
+            let text= document.createElement('p');
+            text.setAttribute('style', 'font-size:40px; font-weight: bold; color: orange');
+            text.innerText='Enter your Date of Birth';
+
+            //appending text to textDiv
+            textDiv.appendChild(text);
+
+            /*
+            Take user date of birth from input
+            */
+            var dateDiv= document.createElement('div');
+            dateDiv.setAttribute('class', 'text-center');
+            var inputBox=document.createElement('input');
+            inputBox.setAttribute('type', 'date');
+              
+
+            var button = document.createElement('button');
+            button.setAttribute('class', 'btn btn-lg btn-success mx-5');
+            button.setAttribute('type', 'submit');
+            button.innerText= 'Submit';
+
+            /**
+            Creating div containing output box
+            */
+            var outputDiv = document.createElement('div');
+            outputDiv.setAttribute('class', 'border border-outline-success text-center');
+            outputDiv.setAttribute('style', 'color:smokewhite;height: 85px;width: 680px;font-size: 40px;margin-left:400px;margin-top:40px');
+
+            var dateDiffParagraph = document.createElement('p');
+            dateDiffParagraph.setAttribute('class', 'h2');
+            outputDiv.append(dateDiffParagraph);
+
+
+            button.addEventListener("click", function() {
+                let userDOB = inputBox.value;
+                let userDOBDateObject = new Date(userDOB);
+
+                /**
+                Calculating date difference
+                */
+                let currDateObject = new Date();
+                let diff = Math.floor(currDateObject.getTime() - userDOBDateObject.getTime());
+                let msDiff = diff;
+                let  secondsDiff = Math.floor(msDiff/1000);
+                let minsDiff = Math.floor(secondsDiff/60);
+                let hrsDiff = Math.floor(minsDiff/60);
+                let daysDiff = Math.floor(hrsDiff/24);
+                let monthsDiff = getMonths(currDateObject, userDOBDateObject);
+                let yearsDiff= getYears(currDateObject,userDOBDateObject);
+
+                /**
+                Updating date difference in outputDiv
+                */
+                var dateTimeDiffString = yearsDiff + " Years, " + monthsDiff + " Months, " + daysDiff + " Days, " + hrsDiff + " Hours, " + minsDiff + " Minutes, " + secondsDiff + " Seconds, " + msDiff + " MilliSeconds";
+                console.log(dateTimeDiffString);
+                dateDiffParagraph.innerText = dateTimeDiffString;
+            });
+            
+            // Appenders
+            dateDiv.append(inputBox, button);
+            containerDiv.append(textDiv, dateDiv, outputDiv);
+            
+            //Appending elements to document
+            document.body.append(titleDiv,containerDiv);
+
+            function getYears(currDateObject, userDOBDateObject ){
+                return currDateObject.getFullYear()- userDOBDateObject.getFullYear() ;
+            }
+
+            function getMonths(currDateObject, userDOBDateObject){
+                years= getYears(currDateObject, userDOBDateObject);
+                return (years*12) + currDateObject.getMonth()- userDOBDateObject.getMonth();
+            }
+        </script>
+    </body>
+</html>
